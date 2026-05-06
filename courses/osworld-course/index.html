@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSWorld：AI 如何学会使用电脑</title>
+
+  <!-- Google Fonts: Bricolage Grotesque · DM Sans · JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Teal accent — scientific, precise, benchmark-fitting -->
+  <style>
+    :root {
+      --color-accent:       #2A7B9B;
+      --color-accent-hover: #1F6280;
+      --color-accent-light: #E4F2F7;
+      --color-accent-muted: #5A9DB8;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title">OSWorld：AI 如何学会使用电脑</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <button class="nav-dot" data-target="module-1" data-tooltip="AI 奥运会" role="tab" aria-label="模块 1: AI 奥运会"></button>
+        <button class="nav-dot" data-target="module-2" data-tooltip="认识演员表" role="tab" aria-label="模块 2: 认识演员表"></button>
+        <button class="nav-dot" data-target="module-3" data-tooltip="沙盒环境" role="tab" aria-label="模块 3: 沙盒环境"></button>
+        <button class="nav-dot" data-target="module-4" data-tooltip="眼睛与双手" role="tab" aria-label="模块 4: 眼睛与双手"></button>
+        <button class="nav-dot" data-target="module-5" data-tooltip="最终评判" role="tab" aria-label="模块 5: 最终评判"></button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- modules/*.html content is assembled here by build.sh -->
+<section class="module" id="module-1" style="background: var(--color-bg)">
+  <div class="module-content">
+
+    <!-- Module Header -->
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="module-title">AI 奥林匹克</h1>
+      <p class="module-subtitle">从对话到点击 — AI 真的能操作计算机吗？</p>
+    </header>
+
+    <!-- ── Screen 1: Opening Hook ─────────────────────────────── -->
+    <div class="screen animate-in">
+      <h2 class="screen-heading">AI 能使用你的计算机吗？</h2>
+
+      <p>你已经见过 AI 写代码、回答问题、生成图像。但如果你把鼠标和键盘交给它，说：<em>"帮我订一张机票"</em>，会怎样？这正是 <span class="term" data-definition="OSWorld 是一个标准化基准测试，用于评估 AI 智能体在真实计算机上完成实际任务的能力——包括点击菜单、填写表单、操作真实应用程序。">OSWorld</span> 要回答的问题。</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-8) 0;">
+        <div style="background: var(--color-success-light); border-radius: var(--radius-md); padding: var(--space-6); border-top: 3px solid var(--color-success);">
+          <p style="font-family: var(--font-display); font-weight: 700; margin-bottom: var(--space-3); color: var(--color-success);">AI 已经能做的事</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-2);">
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 编写并解释代码</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 回答复杂问题</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 生成图像和文本</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 总结长篇文档</li>
+          </ul>
+        </div>
+        <div style="background: var(--color-error-light); border-radius: var(--radius-md); padding: var(--space-6); border-top: 3px solid var(--color-error);">
+          <p style="font-family: var(--font-display); font-weight: 700; margin-bottom: var(--space-3); color: var(--color-error);">真正困难的事</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-2);">
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#8230;&nbsp; 在真实应用和菜单中点击操作</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#8230;&nbsp; 处理意外弹出的窗口</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#8230;&nbsp; 读取动态网页内容</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#8230;&nbsp; 串联多步骤界面操作</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-accent">
+        <span class="callout-icon">&#127942;</span>
+        <div class="callout-content">
+          <span class="callout-title">谁在使用 OSWorld？</span>
+          <p>OSWorld 被 Anthropic、OpenAI、字节跳动、Kimi 等机构用于在真实桌面任务上对其 <span class="term" data-definition="AI 智能体是一种能够采取行动——点击、输入、执行命令——来完成目标的 AI 系统，而不仅仅是回答问题。">AI 智能体</span> 进行基准测试。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Screen 2: What's a Benchmark? ─────────────────────── -->
+    <div class="screen animate-in">
+      <h2 class="screen-heading">AI 智能体的奥林匹克运动会</h2>
+
+      <p><span class="term" data-definition="基准测试是一种用于衡量和比较性能的标准化测试。每位参赛者在相同条件下面对完全相同的挑战，因此分数具有可比性。">基准测试</span>就像奥运会——不是随便一场比赛，而是相同的距离、相同的发令枪、相同的终点线，对每位运动员都一视同仁。正因如此，成绩才具有可比性。</p>
+
+      <p>OSWorld 给每个 <span class="term" data-definition="AI 智能体是一种能够采取行动——点击、输入、执行命令——来完成目标的 AI 系统，而不仅仅是回答问题。">AI 智能体</span> 相同的任务，在相同的 <span class="term" data-definition="虚拟机（VM）是运行在真实计算机内部的软件计算机。OSWorld 使用虚拟机，确保每个智能体都从一个完全干净、一致的环境开始。">虚拟机</span> 中启动，并用相同的自动化评判系统打分。没有主场优势，没有精心挑选的演示。</p>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-accent-light);">&#127919;</div>
+          <div class="pattern-title">标准化</div>
+          <p class="pattern-desc">每个模型收到完全相同的任务指令——一字不差，环境一致。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-info-light);">&#128260;</div>
+          <div class="pattern-title">可复现</div>
+          <p class="pattern-desc">每次运行后，<span class="term" data-definition="虚拟机（VM）是运行在真实计算机内部的软件计算机。OSWorld 使用虚拟机，确保每个智能体都从一个完全干净、一致的环境开始。">虚拟机</span> 都会从 <span class="term" data-definition="快照是虚拟机在特定时刻的完整状态存档。OSWorld 在每次任务运行前都从快照恢复，为每个智能体提供一个干净的起点。">快照</span> 恢复——每次都是完全干净的起点。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-success-light);">&#128200;</div>
+          <div class="pattern-title">可比较</div>
+          <p class="pattern-desc">每个任务得分为 0 或 1。在全部 369 个任务中取平均值，得到一个可跨模型比较的单一数字。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Screen 3: A Task, Step by Step ────────────────────── -->
+    <div class="screen animate-in">
+      <h2 class="screen-heading">深入单个任务</h2>
+
+      <p>OSWorld 中的每个任务都始于一个小型 <span class="term" data-definition="JSON（JavaScript 对象表示法）是一种用于存储结构化数据的轻量级文本格式。它使用键值对，如 {&apos;key&apos;: &apos;value&apos;}，人类和机器都可以读取。">JSON</span> 文件——一个简单的文档，描述 AI 需要做什么以及如何判断是否成功。</p>
+
+      <div class="translation-block">
+        <div class="translation-code">
+          <span class="translation-label">task.json</span>
+<span class="code-line"><span class="code-operator">{</span></span>
+<span class="code-line">  <span class="code-property">"instruction"</span><span class="code-operator">:</span> <span class="code-string">"Show me all men&apos;s large-size</span></span>
+<span class="code-line"><span class="code-string">    short-sleeve shirts with a</span></span>
+<span class="code-line"><span class="code-string">    discount of 50% or more."</span>,</span>
+<span class="code-line">  <span class="code-property">"app"</span><span class="code-operator">:</span> <span class="code-string">"Chrome / Macys.com"</span>,</span>
+<span class="code-line">  <span class="code-property">"evaluator"</span><span class="code-operator">:</span> <span class="code-operator">{</span></span>
+<span class="code-line">    <span class="code-property">"func"</span><span class="code-operator">:</span> <span class="code-string">"url_match"</span>,</span>
+<span class="code-line">    <span class="code-property">"expected"</span><span class="code-operator">:</span> <span class="code-string">"discount=50%2C100</span></span>
+<span class="code-line"><span class="code-string">      &amp;size[]=Large&amp;gender=Men"</span></span>
+<span class="code-line">  <span class="code-operator">}</span></span>
+<span class="code-line"><span class="code-operator">}</span></span>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">通俗解释</span>
+          <div class="translation-lines">
+            <div class="tl"><strong>要做什么：</strong>在 Macys.com 上查找折扣 50% 及以上的男士大码衬衫。</div>
+            <div class="tl"><strong>在哪里：</strong>虚拟机内的真实 Chrome 浏览器。</div>
+            <div class="tl"><strong>如何评分：</strong><span class="term" data-definition="评估器是 OSWorld 中的自动化评判系统。它检查 AI 智能体是否正确完成了任务——通常通过检查智能体停止后的 URL、文件内容或屏幕状态来判断。">评估器</span>检查最终 URL 是否包含正确的筛选参数（size=Large、gender=Men、discount&#8805;50%）。</div>
+          </div>
+        </div>
+      </div>
+
+      <p>以下是该任务运行时的详细步骤：</p>
+
+      <div class="flow-steps" style="flex-direction: column; align-items: flex-start; gap: var(--space-3);">
+        <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+          <div class="flow-step-num" style="flex-shrink: 0;">1</div>
+          <div>
+            <strong>虚拟机启动至全新状态</strong>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-1);"><span class="term" data-definition="虚拟机（VM）是运行在真实计算机内部的软件计算机。OSWorld 使用虚拟机，确保每个智能体都从一个完全干净、一致的环境开始。">虚拟机</span>从干净的 <span class="term" data-definition="快照是虚拟机在特定时刻的完整状态存档。OSWorld 在每次任务运行前都从快照恢复，为每个智能体提供一个干净的起点。">快照</span> 恢复——没有残留的浏览器历史，没有之前的操作记录。</p>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+          <div class="flow-step-num" style="flex-shrink: 0;">2</div>
+          <div>
+            <strong>任务 JSON 提供指令</strong>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-1);">任务文件被加载，AI 智能体接收到指令文本。</p>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+          <div class="flow-step-num" style="flex-shrink: 0;">3</div>
+          <div>
+            <strong>AI 智能体观察屏幕</strong>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-1);">桌面截图被捕获并发送给智能体，作为其 <span class="term" data-definition="观测是 AI 智能体对计算机当前状态的感知——通常是屏幕截图，有时还包括无障碍树数据。">观测</span>。</p>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+          <div class="flow-step-num" style="flex-shrink: 0;">4</div>
+          <div>
+            <strong>智能体点击和输入——最多 15 步</strong>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-1);">每一步：观察屏幕 → 决定动作 → 点击或输入 → 观察新屏幕。循环执行。</p>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+          <div class="flow-step-num" style="flex-shrink: 0;">5</div>
+          <div>
+            <strong>评估器检查任务是否完成</strong>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-1);">智能体停止后，<span class="term" data-definition="评估器是 OSWorld 中的自动化评判系统。它检查 AI 智能体是否正确完成了任务——通常通过检查智能体停止后的 URL、文件内容或屏幕状态来判断。">评估器</span>检查结果。得分：1（成功）或 0（失败）。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Screen 4: Data Flow Animation ─────────────────────── -->
+    <div class="screen animate-in">
+      <h2 class="screen-heading">单个任务的运行流程</h2>
+
+      <p>六个角色相互传递数据以执行单个任务。点击<strong>下一步</strong>观察数据交接的过程。</p>
+
+      <div class="flow-animation" data-steps='[
+        {"highlight":"flow-actor-1","label":"第 1 步 — 任务 JSON 加载配置：指令、应用程序和评估规则均在此定义。"},
+        {"highlight":"flow-actor-2","label":"第 2 步 — DesktopEnv 接收任务配置，并通知 Provider 启动虚拟机。","packet":true,"from":"actor-1","to":"actor-2"},
+        {"highlight":"flow-actor-3","label":"第 3 步 — Provider（虚拟机主机）从快照启动一台干净的虚拟机。","packet":true,"from":"actor-2","to":"actor-3"},
+        {"highlight":"flow-actor-2","label":"第 4 步 — Provider 将截图作为第一个观测发回给 DesktopEnv。","packet":true,"from":"actor-3","to":"actor-2"},
+        {"highlight":"flow-actor-4","label":"第 5 步 — DesktopEnv 将观测和任务指令一起转发给 AI 智能体。","packet":true,"from":"actor-2","to":"actor-4"},
+        {"highlight":"flow-actor-5","label":"第 6 步 — 智能体将截图和指令发送给 LLM API，询问：下一步该做什么？","packet":true,"from":"actor-4","to":"actor-5"},
+        {"highlight":"flow-actor-4","label":"第 7 步 — LLM API 返回一个 PyAutoGUI 命令（如 click、type、scroll）。智能体接收该命令。","packet":true,"from":"actor-5","to":"actor-4"},
+        {"highlight":"flow-actor-2","label":"第 8 步 — 智能体将动作发送给 DesktopEnv，由其在实时虚拟机屏幕上执行。","packet":true,"from":"actor-4","to":"actor-2"},
+        {"highlight":"flow-actor-6","label":"第 9 步 — 所有步骤完成后，DesktopEnv 将控制权移交给评估器以检查结果。","packet":true,"from":"actor-2","to":"actor-6"},
+        {"highlight":"flow-actor-6","label":"第 10 步 — 评估器检查最终屏幕状态并返回得分：1 表示成功，0 表示失败。"}
+      ]'>
+
+        <div class="flow-actors">
+          <div class="flow-actor" id="flow-actor-1">
+            <div class="flow-actor-icon">&#128196;</div>
+            <span>任务 JSON</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-2">
+            <div class="flow-actor-icon">&#128187;</div>
+            <span><span class="term" data-definition="DesktopEnv 是 OSWorld 中负责统筹调度的 Python 类：它启动虚拟机、捕获截图、向智能体发送观测，并触发评估器。">DesktopEnv</span></span>
+          </div>
+          <div class="flow-actor" id="flow-actor-3">
+            <div class="flow-actor-icon">&#9728;</div>
+            <span>Provider（虚拟机）</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-4">
+            <div class="flow-actor-icon">&#129302;</div>
+            <span>AI 智能体</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-5">
+            <div class="flow-actor-icon">&#129504;</div>
+            <span><span class="term" data-definition="LLM 是大型语言模型的缩写——即 AI 大脑（如 GPT-4o 或 Claude），根据屏幕上看到的内容决定下一步采取什么行动。">LLM API</span></span>
+          </div>
+          <div class="flow-actor" id="flow-actor-6">
+            <div class="flow-actor-icon">&#9878;</div>
+            <span>评估器</span>
+          </div>
+        </div>
+
+        <div class="flow-packet"></div>
+        <div class="flow-step-label">点击"下一步"开始</div>
+        <div class="flow-controls">
+          <button class="quiz-check-btn flow-next-btn">下一步</button>
+          <button class="quiz-reset-btn flow-reset-btn">重置</button>
+          <span class="flow-progress"></span>
+        </div>
+      </div>
+
+      <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">智能体使用 <span class="term" data-definition="PyAutoGUI 是一个以编程方式控制鼠标和键盘的 Python 库。OSWorld 智能体输出 PyAutoGUI 命令（如 pyautogui.click(320, 240)）来与屏幕交互。">PyAutoGUI</span> 命令在虚拟机内真实地移动鼠标和输入键盘——这是真正的计算机控制，而非模拟。</p>
+    </div>
+
+    <!-- ── Screen 5: Why It Matters ──────────────────────────── -->
+    <div class="screen animate-in">
+      <h2 class="screen-heading">研究人员为何构建它</h2>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-accent-light);">&#128202;</div>
+          <div class="pattern-title">衡量进展</div>
+          <p class="pattern-desc">排行榜显示 GPT-4o 的成绩约为 40%，而最优秀的专项智能体可达到 70% 以上。一个诚实的数字告诉你谁领先。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-info-light);">&#128269;</div>
+          <div class="pattern-title">发现失败模式</div>
+          <p class="pattern-desc"><span class="term" data-definition="AI 智能体是一种能够采取行动——点击、输入、执行命令——来完成目标的 AI 系统，而不仅仅是回答问题。">AI 智能体</span>在哪里卡住？OSWorld 按应用程序和任务类型细分结果，精确定位模型失败的位置。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-success-light);">&#128736;</div>
+          <div class="pattern-title">训练更好的智能体</div>
+          <p class="pattern-desc">结果指导未来的模型开发——各团队利用 OSWorld 分数了解哪些能力仍需改进。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">&#9888;</span>
+        <div class="callout-content">
+          <span class="callout-title">AI 研究中最难的基准测试之一</span>
+          <p>真实的计算机不会给你一个干净的 API。它们有弹出窗口、加载动画、意外的界面状态，以及动态变化的页面。AI 智能体必须处理所有这些——就像人类一样。</p>
+        </div>
+      </div>
+
+      <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-6); border-left: 4px solid var(--color-accent); margin-top: var(--space-8);">
+        <p style="font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); color: var(--color-accent);">下一节 &rarr;</p>
+        <p style="margin: 0; color: var(--color-text-secondary);">认识构成 OSWorld 的 5 个核心组件——任务 JSON、<span class="term" data-definition="DesktopEnv 是 OSWorld 中负责统筹调度的 Python 类：它启动虚拟机、捕获截图、向智能体发送观测，并触发评估器。">DesktopEnv</span>、虚拟机提供者、AI 智能体以及 <span class="term" data-definition="评估器是 OSWorld 中的自动化评判系统。它检查 AI 智能体是否正确完成了任务——通常通过检查智能体停止后的 URL、文件内容或屏幕状态来判断。">评估器</span>。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="module" id="module-2" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+
+    <!-- Module Header -->
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">认识成员</h1>
+      <p class="module-subtitle">OSWorld 就像一部电影的拍摄现场。五个组件，各司其职，通过明确的交接流程传递工作——缺少任何一个都无法完成任务。</p>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 1 — The Cast Overview
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-2-1">
+      <h2 class="screen-heading">五个角色，一个基准测试</h2>
+
+      <p>每次 OSWorld 运行都涉及 5 个组件协同工作，就像一个电影剧组。缺少任何一个都无法完成任务。导演统筹全局，演员负责表演，舞台布置场景，制片公司提供场地，评审给出最终判决。</p>
+
+      <!-- File Tree -->
+      <div class="file-tree">
+        <div class="ft-folder">
+          <span class="ft-name">osworld/</span>
+          <div class="ft-children">
+            <div class="ft-file">
+              <span class="ft-name">run.py</span>
+              <span class="ft-desc">— <strong>导演</strong>：统筹整个流程</span>
+            </div>
+            <div class="ft-folder">
+              <span class="ft-name">desktop_env/</span>
+              <div class="ft-children">
+                <div class="ft-file">
+                  <span class="ft-name">desktop_env.py</span>
+                  <span class="ft-desc">— <strong>舞台</strong>：封装一切的 <span class="term" data-definition="gym 环境是一种标准 AI 智能体接口，借鉴自游戏 AI 研究。它定义了 reset()、step() 和 evaluate() 方法，使任何智能体都能无缝接入，无需定制连接代码。">gym 环境</span></span>
+                </div>
+                <div class="ft-folder">
+                  <span class="ft-name">providers/</span>
+                  <span class="ft-desc">— <strong>制片公司</strong>：VMware、Docker、AWS（启动虚拟机的不同方式）</span>
+                </div>
+                <div class="ft-folder">
+                  <span class="ft-name">controllers/</span>
+                  <span class="ft-desc">— <strong>剧组</strong>：向虚拟机发送指令，设置任务</span>
+                </div>
+                <div class="ft-folder">
+                  <span class="ft-name">evaluators/</span>
+                  <span class="ft-desc">— <strong>评审</strong>：判断任务是否完成</span>
+                </div>
+              </div>
+            </div>
+            <div class="ft-folder">
+              <span class="ft-name">mm_agents/</span>
+              <div class="ft-children">
+                <div class="ft-file">
+                  <span class="ft-name">agent.py</span>
+                  <span class="ft-desc">— <strong>演员</strong>：尝试完成任务的 AI</span>
+                </div>
+              </div>
+            </div>
+            <div class="ft-folder">
+              <span class="ft-name">evaluation_examples/</span>
+              <span class="ft-desc">— <strong>剧本</strong>：定义任务内容的 JSON 文件</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>可以把每个组件想象成电影片场上的专业人员。导演不负责表演，演员不拥有制片公司，评审也不操作摄像机。他们之间的每次交接都是经过深思熟虑、界定清晰的。</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 2 — The Director (run.py)
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-2-2">
+      <h2 class="screen-heading">导演：run.py</h2>
+
+      <p><code>run.py</code> 是协调一切的顶层脚本。它加载任务配置，创建智能体和 DesktopEnv，然后逐一循环执行每个任务，并记录结果。没有导演，就没有人知道该做什么，也不知道该按什么顺序来做。</p>
+
+      <p>以下是导演让两位主角登场的关键时刻：</p>
+
+      <!-- Code ↔ English Translation Block -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">run.py — lines 142–162</span>
+<span class="code-line"><span class="code-variable">agent</span> <span class="code-operator">=</span> <span class="code-function">PromptAgent</span>(</span>
+<span class="code-line">    <span class="code-property">model</span><span class="code-operator">=</span>args<span class="code-operator">.</span>model,</span>
+<span class="code-line">    <span class="code-property">max_tokens</span><span class="code-operator">=</span>args<span class="code-operator">.</span>max_tokens,</span>
+<span class="code-line">    <span class="code-property">top_p</span><span class="code-operator">=</span>args<span class="code-operator">.</span>top_p,</span>
+<span class="code-line">    <span class="code-property">temperature</span><span class="code-operator">=</span>args<span class="code-operator">.</span>temperature,</span>
+<span class="code-line">    <span class="code-property">action_space</span><span class="code-operator">=</span>args<span class="code-operator">.</span>action_space,</span>
+<span class="code-line">    <span class="code-property">observation_type</span><span class="code-operator">=</span>args<span class="code-operator">.</span>observation_type,</span>
+<span class="code-line">    <span class="code-property">max_trajectory_length</span><span class="code-operator">=</span>args<span class="code-operator">.</span>max_trajectory_length,</span>
+<span class="code-line">)</span>
+<span class="code-line">&nbsp;</span>
+<span class="code-line"><span class="code-variable">env</span> <span class="code-operator">=</span> <span class="code-function">DesktopEnv</span>(</span>
+<span class="code-line">    <span class="code-property">provider_name</span><span class="code-operator">=</span>args<span class="code-operator">.</span>provider_name,</span>
+<span class="code-line">    <span class="code-property">path_to_vm</span><span class="code-operator">=</span>args<span class="code-operator">.</span>path_to_vm,</span>
+<span class="code-line">    <span class="code-property">action_space</span><span class="code-operator">=</span>agent<span class="code-operator">.</span>action_space,</span>
+<span class="code-line">    <span class="code-property">screen_size</span><span class="code-operator">=</span>(args<span class="code-operator">.</span>screen_width, args<span class="code-operator">.</span>screen_height),</span>
+<span class="code-line">    <span class="code-property">headless</span><span class="code-operator">=</span>args<span class="code-operator">.</span>headless,</span>
+<span class="code-line">    <span class="code-property">os_type</span> <span class="code-operator">=</span> <span class="code-string">"Ubuntu"</span>,</span>
+<span class="code-line">)</span>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">通俗解释</span>
+          <div class="translation-lines">
+            <div class="tl"><strong>第 1–8 行：</strong>创建 AI 智能体——使用哪个模型、生成多少个 <span class="term" data-definition="Token 是 AI 处理的文本单元。一个 token 大约相当于 3/4 个英文单词。max_tokens 限制了 AI 回复的最大长度。">token</span>、创造性程度（<span class="term" data-definition="温度（temperature）控制随机性。低温（如 0.1）= 稳定、可预测；高温（如 0.9）= 更具创造性和多样性，但也更不稳定。">温度</span>）、接收什么类型的输入（<span class="term" data-definition="观测类型（observation type）告诉智能体它能"看到"什么。选项包括截图、无障碍树（描述 UI 的结构化文本），或两者兼有。">观测类型</span>）</div>
+            <div class="tl"><strong>第 10–17 行：</strong>创建虚拟计算机环境——使用哪个提供商（VMware？Docker？AWS？）、虚拟机文件在哪里、屏幕多大、是否显示图形界面（<span class="term" data-definition="无头模式（headless）在没有可见窗口的情况下运行虚拟机。适用于没有显示器的服务器上的自动化测试。">无头模式</span>）</div>
+          </div>
+        </div>
+      </div>
+
+      <p>注意，智能体和环境都被设置了相同的 <span class="term" data-definition="动作空间（action space）定义了智能体允许执行的动作类型。例如：pyautogui（鼠标点击和键盘输入）、bash 命令，或两者的组合。智能体和环境必须使用相同的动作空间。">动作空间</span>——它们需要使用同一种"语言"才能协同工作。</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 3 — The Actor and the Stage
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-2-3">
+      <h2 class="screen-heading">演员与舞台</h2>
+
+      <p>在每次 OSWorld 运行中，最繁忙的两个角色是智能体和环境。它们轮流配合：环境显示截图，智能体决定下一步操作，环境执行该操作，如此循环往复。</p>
+
+      <div class="icon-rows">
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-1); color: white;">🎭</div>
+          <div>
+            <strong>PromptAgent — 演员</strong>
+            <p>查看屏幕，调用 <span class="term" data-definition="大语言模型（LLM）是 AI 的核心大脑：在海量文本上训练，能够理解指令并生成文本——包括"点击这里"或"输入这个"等 Python 命令。">大语言模型</span>，生成点击/输入动作。位于 <code>mm_agents/agent.py</code>。智能体不直接操作虚拟机——它只输出动作指令。</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-2); color: white;">🎬</div>
+          <div>
+            <strong>DesktopEnv — 舞台</strong>
+            <p>管理虚拟机的生命周期：重置、执行步骤、评估结果。实现了 <span class="term" data-definition="OpenAI Gym（现为 Gymnasium）是构建 AI 环境的标准 Python 接口。它定义了 reset()、step() 和 close() 方法，使智能体和环境无需定制代码即可连接。">OpenAI Gym</span> 接口。位于 <code>desktop_env/desktop_env.py</code>。舞台从不决定做什么——它只负责执行并汇报结果。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <span class="callout-icon">💡</span>
+        <div class="callout-content">
+          <span class="callout-title">来自游戏 AI 的熟悉接口</span>
+          <p>DesktopEnv 实现了 <span class="term" data-definition="OpenAI Gym（现为 Gymnasium）是构建 AI 环境的标准 Python 接口。它定义了 reset()、step() 和 close() 方法，使智能体和环境无需定制代码即可连接。">OpenAI Gym</span> 接口——这与训练 AlphaGo 等游戏 AI 所用的接口相同。这意味着 OSWorld 的任务不仅可以用于评测，还可用于 <span class="term" data-definition="强化学习是一种通过试错来训练 AI 的方法：AI 采取动作，获得奖励或惩罚，并逐渐改进。OSWorld 的 gym 接口使得以这种方式训练智能体成为可能，而不仅仅是评估它们。">强化学习</span>。任何能与 gym 环境交互的强化学习算法都可以直接接入。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 4 — Group Chat: A task begins
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-2-4">
+      <h2 class="screen-heading">它们如何相互沟通</h2>
+
+      <p>让我们来看一个真实任务的执行过程。用户希望 AI 在 Macy&apos;s 上找到打五折的男士大码衬衫。以下是五个角色逐条消息地协调配合的过程。</p>
+
+      <div class="chat-window" id="chat-module2">
+        <div class="chat-messages">
+
+          <!-- msg 0 -->
+          <div class="chat-message" data-msg="0" data-sender="director" style="display:none">
+            <div class="chat-avatar" style="background: #2A7B9B">D</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2A7B9B">导演 (run.py)</span>
+              <p>正在加载任务 2888b4e6……指令为"展示打五折的男士大码衬衫"</p>
+            </div>
+          </div>
+
+          <!-- msg 1 -->
+          <div class="chat-message" data-msg="1" data-sender="director" style="display:none">
+            <div class="chat-avatar" style="background: #2A7B9B">D</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2A7B9B">导演 (run.py)</span>
+              <p>DesktopEnv，请重置到 <span class="term" data-definition="快照是虚拟机精确状态的冻结副本，包括磁盘、内存和已打开的应用程序。OSWorld 在每个任务开始前都会重置到相同的快照，确保每次测试都从相同的干净基线开始。">快照</span> 并运行设置配置</p>
+            </div>
+          </div>
+
+          <!-- msg 2 -->
+          <div class="chat-message" data-msg="2" data-sender="stage" style="display:none">
+            <div class="chat-avatar" style="background: #2D8B55">S</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2D8B55">舞台 (DesktopEnv)</span>
+              <p>提供商，我需要一台已打开 macys.com 的全新 Ubuntu 虚拟机</p>
+            </div>
+          </div>
+
+          <!-- msg 3 -->
+          <div class="chat-message" data-msg="3" data-sender="studio" style="display:none">
+            <div class="chat-avatar" style="background: #D4A843">P</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #D4A843">制片公司 (Provider)</span>
+              <p>完成——虚拟机已就绪，地址为 192.168.1.100</p>
+            </div>
+          </div>
+
+          <!-- msg 4 -->
+          <div class="chat-message" data-msg="4" data-sender="stage" style="display:none">
+            <div class="chat-avatar" style="background: #2D8B55">S</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2D8B55">舞台 (DesktopEnv)</span>
+              <p>演员，这是你的截图和指令</p>
+            </div>
+          </div>
+
+          <!-- msg 5 -->
+          <div class="chat-message" data-msg="5" data-sender="actor" style="display:none">
+            <div class="chat-avatar" style="background: #D94F30">A</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #D94F30">演员 (Agent)</span>
+              <p>正在发送给 GPT-4o……它说点击"男士"分类菜单</p>
+            </div>
+          </div>
+
+          <!-- msg 6 -->
+          <div class="chat-message" data-msg="6" data-sender="actor" style="display:none">
+            <div class="chat-avatar" style="background: #D94F30">A</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #D94F30">演员 (Agent)</span>
+              <p>舞台，执行：<span class="term" data-definition="PyAutoGUI 是一个用于控制鼠标和键盘的 Python 库。pyautogui.click(452, 87) 将光标移动到屏幕上坐标 (452, 87) 处并点击。">pyautogui</span>.click(452, 87)</p>
+            </div>
+          </div>
+
+          <!-- msg 7 -->
+          <div class="chat-message" data-msg="7" data-sender="stage" style="display:none">
+            <div class="chat-avatar" style="background: #2D8B55">S</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2D8B55">舞台 (DesktopEnv)</span>
+              <p>已点击。这是新的截图</p>
+            </div>
+          </div>
+
+          <!-- msg 8 -->
+          <div class="chat-message" data-msg="8" data-sender="critic" style="display:none">
+            <div class="chat-avatar" style="background: #7B6DAA">C</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #7B6DAA">评审 (Evaluator)</span>
+              <p>【15 步后】正在检查 URL……过滤参数正确。得分：1.0</p>
+            </div>
+          </div>
+
+          <!-- msg 9 -->
+          <div class="chat-message" data-msg="9" data-sender="director" style="display:none">
+            <div class="chat-avatar" style="background: #2A7B9B">D</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2A7B9B">导演 (run.py)</span>
+              <p>记录结果：1.0。继续执行下一个任务。</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="chat-typing" style="display:none">
+          <div class="chat-avatar" id="chat-module2-typing-avatar" style="background: #2A7B9B">D</div>
+          <div class="chat-typing-dots">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <div class="chat-controls">
+          <button class="btn btn-primary chat-next-btn">下一条消息</button>
+          <button class="btn chat-all-btn">全部播放</button>
+          <button class="btn chat-reset-btn">重置</button>
+          <span class="chat-progress">0 / 10 条消息</span>
+        </div>
+      </div>
+
+      <p>注意，没有任何组件会跨越其相邻节点直接通信。演员从不直接与提供商交谈。评审也不会在任务进行中途打断。每次交接都是单一、简洁的消息——就像一个运转良好的电影剧组。</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 5 — The Critic and the Script
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-2-5">
+      <h2 class="screen-heading">裁判与规则手册</h2>
+
+      <p>每个任务在运行之前还需要两个关键要素：一个知道"完成"是什么样子的组件，以及一个定义任务本身的组件。来认识一下评审和剧本。</p>
+
+      <div class="pattern-cards">
+        <div class="pattern-card animate-in" style="border-top-color: #7B6DAA">
+          <div class="pattern-icon" style="background: #F3F0FA; color: #7B6DAA">⚖️</div>
+          <div class="pattern-title">评审 — Evaluator</div>
+          <p class="pattern-desc">知道每个任务"完成"是什么样子。使用 getter 函数从虚拟机中提取状态，再用 metric 函数与预期结果进行比较。位于 <code>desktop_env/evaluators/</code>。得分 1.0 表示成功；0.0 表示失败。</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top-color: #D4A843">
+          <div class="pattern-icon" style="background: #FDF7E9; color: #D4A843">📜</div>
+          <div class="pattern-title">剧本 — Task JSON</div>
+          <p class="pattern-desc">定义要做什么、如何设置环境，以及如何判断是否成功。涵盖 9 个应用程序的 369 个任务——Chrome、LibreOffice、GIMP、VS Code 等。位于 <code>evaluation_examples/</code>。每个文件都是一个自包含的规范，导演在每个任务开始时读取它。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-accent animate-in">
+        <span class="callout-icon">🗺️</span>
+        <div class="callout-content">
+          <span class="callout-title">下一节：虚拟机层</span>
+          <p>接下来，让我们深入了解虚拟机层——<span class="term" data-definition="快照是虚拟机精确状态的冻结副本，包括磁盘、内存和已打开的应用程序。OSWorld 在每个任务开始前都会重置到相同的快照，确保每次测试都从相同的干净基线开始。">快照</span>的神奇之处，它让 OSWorld 能够可靠地运行数百个测试。</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</section>
+<section class="module" id="module-3" style="background: var(--color-bg)">
+  <div class="module-content">
+
+    <!-- Module Header -->
+    <header class="module-header animate-in">
+      <span class="module-number" aria-hidden="true">03</span>
+      <h2 class="module-title">沙箱环境</h2>
+      <p class="module-subtitle">每次调查都从完好保存的案发现场开始。OSWorld 如何保证每一次都有干净的起点。</p>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 1 — Why the VM matters
+         ═══════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="module-3-screen-1">
+      <h3 class="screen-heading">一台能自我重置的计算机</h3>
+
+      <p>
+        当一个<span class="term" data-definition="一种能在计算机上执行操作的 AI 系统——点击、输入、导航应用程序——以完成用自然语言描述的任务。">AI 智能体</span>
+        运行任务时，它会与真实的桌面交互：打开文件、点击按钮、更改设置。有时它会出错。
+        有时它会导致应用程序崩溃。有时它会让系统处于与初始状态完全不同的状态。
+      </p>
+      <p>
+        如果这些更改延续到下一个测试，结果将毫无意义。第 47 个任务可能失败，不是因为 AI 在该任务上表现不佳，而是因为第 46 个任务不小心删除了一个字体。OSWorld 通过可以
+        <span class="term" data-definition="一台完全在您物理机器上的软件内运行的计算机。它有自己的磁盘、内存和已安装的应用程序——与宿主计算机完全隔离。">虚拟机</span>
+        来解决这个问题，这些虚拟机可以回溯时间。
+      </p>
+
+      <!-- Two-column visual: Without vs With snapshots -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin:var(--space-8) 0;">
+
+        <div style="background:var(--color-error-light);border:1px solid var(--color-error);border-radius:var(--radius-md);padding:var(--space-5);">
+          <p style="font-family:var(--font-display);font-weight:700;color:var(--color-error);margin-bottom:var(--space-3);font-size:var(--text-base);">没有快照</p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);">
+              <span style="font-size:1.1rem;">🖥️</span>
+              <span>任务 1 — 桌面干净</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);opacity:0.85;">
+              <span style="font-size:1.1rem;">💥</span>
+              <span>任务 2 — 文件被删除，设置被更改</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);opacity:0.7;">
+              <span style="font-size:1.1rem;">🌀</span>
+              <span>任务 3 — 因缺少文件而崩溃</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);opacity:0.55;">
+              <span style="font-size:1.1rem;">❌</span>
+              <span>任务 4 — 结果毫无意义</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--color-success-light);border:1px solid var(--color-success);border-radius:var(--radius-md);padding:var(--space-5);">
+          <p style="font-family:var(--font-display);font-weight:700;color:var(--color-success);margin-bottom:var(--space-3);font-size:var(--text-base);">有快照</p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);">
+              <span style="font-size:1.1rem;">✅</span>
+              <span>任务 1 — 全新干净的桌面</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);">
+              <span style="font-size:1.1rem;">🔄</span>
+              <span>恢复到快照</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);">
+              <span style="font-size:1.1rem;">✅</span>
+              <span>任务 2 — 全新干净的桌面</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);background:white;border-radius:var(--radius-sm);font-size:var(--text-sm);">
+              <span style="font-size:1.1rem;">✅</span>
+              <span>任务 3 — 全新干净的桌面</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout callout-accent">
+        <span class="callout-icon" aria-hidden="true">💡</span>
+        <div class="callout-content">
+          <span class="callout-title">什么是虚拟机？</span>
+          <p><span class="term" data-definition="一台完全在您物理机器上的软件内运行的计算机。它有自己的磁盘、内存和已安装的应用程序——与宿主计算机完全隔离。">虚拟机</span>是在您的计算机内部运行的一台计算机——它有自己的磁盘、自己的内存、自己已安装的应用程序。您可以在任何时刻对其进行<span class="term" data-definition="虚拟机完整状态的冻结副本——磁盘上的所有内容、内存中的数据以及正在运行的进程——在某一特定时刻捕获。您可以随时将虚拟机恢复到这个精确状态。">快照</span>，然后随时恢复到那个精确状态，就好像什么都没发生过一样。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 2 — The snapshot mechanism
+         ═══════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="module-3-screen-2">
+      <h3 class="screen-heading">计算机的时间旅行</h3>
+
+      <p>
+        把<span class="term" data-definition="虚拟机完整状态的冻结副本——磁盘上的所有内容、内存中的数据以及正在运行的进程——在某一特定时刻捕获。您可以随时将虚拟机恢复到这个精确状态。">快照</span>
+        想象成游戏存档。OSWorld 搭建了一台运行 Ubuntu Linux 的
+        <span class="term" data-definition="一台完全在您物理机器上的软件内运行的计算机。它有自己的磁盘、内存和已安装的应用程序——与宿主计算机完全隔离。">虚拟机</span>，
+        其中安装了 Chrome、LibreOffice、GIMP 以及基准测试所需的其他所有应用程序。那个完好的初始状态被保存为 <code style="font-family:var(--font-mono);background:var(--color-bg-code);color:#CBA6F7;padding:2px 6px;border-radius:4px;">init_state</code>。
+        在每个任务开始前，虚拟机都会回溯到 <code style="font-family:var(--font-mono);background:var(--color-bg-code);color:#CBA6F7;padding:2px 6px;border-radius:4px;">init_state</code>。每一次。都是如此。
+      </p>
+
+      <div class="step-cards stagger-children" style="margin:var(--space-8) 0;">
+        <div class="step-card animate-in">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>配置虚拟机</strong>
+            <p>安装 Ubuntu，并配置 Chrome、LibreOffice、GIMP、VS Code 以及一个测试用户账户——OSWorld 的 369 个任务可能需要的一切。</p>
+          </div>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>保存为 "init_state"</strong>
+            <p>整个虚拟机状态——磁盘内容、正在运行的进程、打开的窗口——被冻结并保存为名为 <code style="font-family:var(--font-mono);font-size:var(--text-xs);">init_state</code> 的<span class="term" data-definition="虚拟机完整状态的冻结副本——磁盘上的所有内容、内存中的数据以及正在运行的进程——在某一特定时刻捕获。您可以随时将虚拟机恢复到这个精确状态。">快照</span>。</p>
+          </div>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>任务运行</strong>
+            <p>AI 智能体接管控制：点击、输入、打开文件、拖动窗口。它可能会让系统处于任何状态。</p>
+          </div>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>恢复到快照</strong>
+            <p>任务结束。OSWorld 立即将虚拟机回溯到 <code style="font-family:var(--font-mono);font-size:var(--text-xs);">init_state</code>——就好像之前的智能体从未存在过。</p>
+          </div>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <strong>下一个任务从完美干净的状态开始</strong>
+            <p>下一个任务看到的是完全相同的、完好的环境。每个任务都获得同样公平的起跑线。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon" aria-hidden="true">🔑</span>
+        <div class="callout-content">
+          <span class="callout-title">关键术语</span>
+          <p>
+            <span class="term" data-definition="虚拟机完整状态的冻结副本——磁盘上的所有内容、内存中的数据以及正在运行的进程——在某一特定时刻捕获。您可以随时将虚拟机恢复到这个精确状态。">快照</span> &mdash;
+            <span class="term" data-definition="一台完全在您物理机器上的软件内运行的计算机。它有自己的磁盘、内存和已安装的应用程序——与宿主计算机完全隔离。">虚拟机</span> &mdash;
+            <span class="term" data-definition="基于内核的虚拟机。Linux 的一项特性，允许软件通过直接与硬件通信来创建和运行具有接近原生速度的虚拟机。Docker 版 OSWorld 必须使用此特性。">KVM</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 3 — Code: the reset() method
+         ═══════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="module-3-screen-3">
+      <h3 class="screen-heading">任务重置时发生了什么</h3>
+
+      <p>
+        每次 OSWorld 从一个任务切换到下一个任务时，它都会调用一个名为 <code style="font-family:var(--font-mono);background:var(--color-bg-code);color:#89B4FA;padding:2px 6px;border-radius:4px;">reset()</code> 的方法。
+        以下是该代码逐行实际执行的内容：
+      </p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">Python</span>
+<span class="code-line"><span class="code-keyword">def</span> <span class="code-function">reset</span>(<span class="code-property">self</span>, task_config=<span class="code-keyword">None</span>):</span>
+<span class="code-line">    <span class="code-property">self</span>._traj_no <span class="code-operator">+=</span> <span class="code-number">1</span></span>
+<span class="code-line">    <span class="code-property">self</span>._step_no <span class="code-operator">=</span> <span class="code-number">0</span></span>
+<span class="code-line">    <span class="code-property">self</span>.action_history.<span class="code-function">clear</span>()</span>
+<span class="code-line">&nbsp;</span>
+<span class="code-line">    <span class="code-keyword">if</span> <span class="code-property">self</span>.is_environment_used:</span>
+<span class="code-line">        <span class="code-property">self</span>.<span class="code-function">_revert_to_snapshot</span>()</span>
+<span class="code-line">        <span class="code-property">self</span>.<span class="code-function">_start_emulator</span>()</span>
+<span class="code-line">        <span class="code-property">self</span>.is_environment_used <span class="code-operator">=</span> <span class="code-keyword">False</span></span>
+<span class="code-line">&nbsp;</span>
+<span class="code-line">    <span class="code-keyword">if</span> task_config <span class="code-keyword">is not None</span>:</span>
+<span class="code-line">        <span class="code-property">self</span>.<span class="code-function">_set_task_info</span>(task_config)</span>
+<span class="code-line">        success <span class="code-operator">=</span> <span class="code-property">self</span>.setup_controller.<span class="code-function">setup</span>(<span class="code-property">self</span>.config)</span>
+<span class="code-line">        <span class="code-keyword">if</span> success:</span>
+<span class="code-line">            <span class="code-property">self</span>.is_environment_used <span class="code-operator">=</span> <span class="code-keyword">True</span></span>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">通俗解释</span>
+          <div class="translation-lines">
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self._traj_no += 1</strong><br>记录当前是第几个任务</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self._step_no = 0</strong><br>将步骤计数器重置为零</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self.action_history.clear()</strong><br>清除上一次发生的事情的记忆</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">if self.is_environment_used:</strong><br>这个虚拟机被用过了吗？如果是，则重置它</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self._revert_to_snapshot()</strong><br>将虚拟机回溯到其干净的已保存状态</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self._start_emulator()</strong><br>重新启动虚拟机</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self._set_task_info(task_config)</strong><br>加载此任务的指令和评估器</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self.setup_controller.setup(self.config)</strong><br>执行设置步骤：打开 Chrome、导航到指定 URL 等</div>
+            <div class="tl"><strong style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent)">self.is_environment_used = True</strong><br>标记该虚拟机现在已"脏"——在下一个任务前需要重置</div>
+          </div>
+        </div>
+      </div>
+
+      <p>整个函数读起来就像一位细心的实验室技术员在每次实验前都会遵循的检查清单：清理笔记、消毒设备、加载新样品、标记工作台为使用中。</p>
+
+      <div class="callout callout-info">
+        <span class="callout-icon" aria-hidden="true">🔬</span>
+        <div class="callout-content">
+          <span class="callout-title">OSWorld 作为训练场</span>
+          <p>OSWorld 遵循强化学习中的<span class="term" data-definition="AI 训练环境的标准接口（来自 OpenAI Gym）。每个环境都提供 reset()——启动新一轮训练——和 step()——应用一个动作并返回新状态。这使得交换环境和 AI 智能体变得容易。">gym 环境</span>模式。<code style="font-family:var(--font-mono);font-size:var(--text-xs);">reset()</code> 方法是每个新轮次的通用发令枪。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 4 — The Providers (flow animation)
+         ═══════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="module-3-screen-4">
+      <h3 class="screen-heading">选择您的实验室：VMware、Docker 还是 AWS</h3>
+
+      <p>
+        OSWorld 可以在不同的<span class="term" data-definition="实际创建和管理虚拟机的后端系统。OSWorld 支持 VMware、VirtualBox、Docker、AWS、Azure、GCP 等。">提供商</span>上运行——即以不同方式启动虚拟机。可以把它们想象成不同的法医实验室。相同的证据，相同的程序，但设施不同，能力和权衡各异。
+      </p>
+
+      <!-- Flow animation -->
+      <div class="flow-animation animate-in"
+           data-steps='[
+             {"highlight":"flow-vmware","label":"在笔记本或台式机上运行？VMware 是最简单的起点——它支持 macOS（包括 Apple Silicon）、Windows 和 Linux。"},
+             {"highlight":"flow-vbox","label":"偏好免费选项？VirtualBox 是 Linux 和 Windows 桌面上 VMware 的可靠替代方案，但某些高级功能可能有所不同。"},
+             {"highlight":"flow-docker","label":"有支持 KVM 的服务器？Docker 加 KVM 比 VMware 批量评估快得多——非常适合研究环境。","packet":true,"from":"vmware","to":"docker"},
+             {"highlight":"flow-aws","label":"需要在不等待数天的情况下对 10 个 AI 模型进行 369 个任务的评估？AWS 可以并行运行 10 个以上的虚拟机——将完整基准缩短到 1 小时以内。","packet":true,"from":"docker","to":"aws"},
+             {"highlight":"flow-aws","label":"云提供商（AWS、Azure、GCP）每次都从干净的基础镜像启动虚拟机——因此不需要快照恢复步骤。这是最大的性能优势。"}
+           ]'>
+
+        <div class="flow-actors">
+          <div class="flow-actor" id="flow-vmware">
+            <div class="flow-actor-icon" style="color:#D94F30;border-color:#D94F30;background:#FDEEE9;">VM</div>
+            <span>VMware</span>
+          </div>
+          <div class="flow-actor" id="flow-vbox">
+            <div class="flow-actor-icon" style="color:#2A7B9B;border-color:#2A7B9B;background:#E4F2F7;">VB</div>
+            <span>VirtualBox</span>
+          </div>
+          <div class="flow-actor" id="flow-docker">
+            <div class="flow-actor-icon" style="color:#2D8B55;border-color:#2D8B55;background:#E8F5EE;">🐳</div>
+            <span>Docker+KVM</span>
+          </div>
+          <div class="flow-actor" id="flow-aws">
+            <div class="flow-actor-icon" style="color:#D4A843;border-color:#D4A843;background:#FDF6E3;">☁️</div>
+            <span>AWS</span>
+          </div>
+        </div>
+
+        <div class="flow-packet"></div>
+        <div class="flow-step-label">点击"下一步"逐步了解提供商选择</div>
+
+        <div class="flow-controls">
+          <button class="btn btn-primary flow-next-btn">下一步</button>
+          <button class="btn flow-reset-btn">重置</button>
+          <span class="flow-progress"></span>
+        </div>
+      </div>
+
+      <!-- Provider pattern cards -->
+      <div class="pattern-cards stagger-children" style="margin-top:var(--space-8);">
+        <div class="pattern-card animate-in" style="border-top-color:#D94F30;">
+          <div class="pattern-icon" style="background:#FDEEE9;">🖥️</div>
+          <div class="pattern-title">VMware</div>
+          <p class="pattern-desc">本地笔记本或台式机。最易设置。支持 Apple Silicon 的 macOS。<span class="term" data-definition="同时运行多个任务或虚拟机。不是依次完成任务 1、任务 2、任务 3，而是同时运行所有任务——大幅缩短总时间。">并行性</span>有限。</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top-color:#2A7B9B;">
+          <div class="pattern-icon" style="background:#E4F2F7;">📦</div>
+          <div class="pattern-title">VirtualBox</div>
+          <p class="pattern-desc">VMware 的免费替代方案。适用于 Linux 和 Windows 桌面。某些功能可能与 VMware 不同。</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top-color:#2D8B55;">
+          <div class="pattern-icon" style="background:#E8F5EE;">🐳</div>
+          <div class="pattern-title">Docker + KVM</div>
+          <p class="pattern-desc">服务器环境。批量评估比 VMware 快得多。需要宿主机支持<span class="term" data-definition="基于内核的虚拟机。Linux 的一项特性，允许软件通过直接与硬件通信来创建和运行具有接近原生速度的虚拟机。Docker 版 OSWorld 必须使用此特性。">KVM</span>。</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top-color:#D4A843;">
+          <div class="pattern-icon" style="background:#FDF6E3;">☁️</div>
+          <div class="pattern-title">AWS</div>
+          <p class="pattern-desc">云规模。可并行运行 10 个以上虚拟机。将完整 369 个任务基准的评估时间缩短到 1 小时以内。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 5 — Cloud optimization + Quiz
+         ═══════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="module-3-screen-5">
+      <h3 class="screen-heading">云端优化技巧</h3>
+
+      <p>
+        这里有个巧妙之处。像 AWS 这样的云提供商不会在任务之间保留持久的虚拟机——它们只是每次都从干净的基础镜像启动一个全新的虚拟机。这意味着它们永远不需要恢复<span class="term" data-definition="虚拟机完整状态的冻结副本——磁盘上的所有内容、内存中的数据以及正在运行的进程——在某一特定时刻捕获。您可以随时将虚拟机恢复到这个精确状态。">快照</span>，因为它们自动从干净状态启动。
+      </p>
+
+      <p>OSWorld 用一个标志来追踪这一点：<code style="font-family:var(--font-mono);background:var(--color-bg-code);color:#F9E2AF;padding:2px 6px;border-radius:4px;">is_environment_used</code>。初始化代码根据您的<span class="term" data-definition="实际创建和管理虚拟机的后端系统。OSWorld 支持 VMware、VirtualBox、Docker、AWS、Azure、GCP 等。">提供商</span>以不同方式设置该标志：</p>
+
+      <!-- Code block -->
+      <div style="background:var(--color-bg-code);border-radius:var(--radius-md);padding:var(--space-6);margin:var(--space-6) 0;font-family:var(--font-mono);font-size:var(--text-sm);line-height:1.7;box-shadow:var(--shadow-md);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-4);opacity:0.5;">
+          <span style="color:#CDD6F4;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;">desktop_env.py — __init__</span>
+        </div>
+        <span class="code-line"><span class="code-keyword">if</span> <span class="code-property">self</span>.provider_name <span class="code-keyword">in</span> {<span class="code-string">"docker"</span>, <span class="code-string">"aws"</span>, <span class="code-string">"gcp"</span>, <span class="code-string">"azure"</span>}:</span>
+        <span class="code-line">    <span class="code-property">self</span>.is_environment_used <span class="code-operator">=</span> <span class="code-keyword">False</span>  <span class="code-comment"># 始终从干净状态启动——无需恢复快照</span></span>
+        <span class="code-line"><span class="code-keyword">elif</span> <span class="code-property">self</span>.provider_name <span class="code-keyword">in</span> {<span class="code-string">"vmware"</span>, <span class="code-string">"virtualbox"</span>}:</span>
+        <span class="code-line">    <span class="code-property">self</span>.is_environment_used <span class="code-operator">=</span> <span class="code-keyword">True</span>   <span class="code-comment"># 假设已"脏"——必须先恢复快照</span></span>
+      </div>
+
+      <!-- Plain-English summary -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin:var(--space-6) 0;">
+        <div style="background:var(--color-success-light);border:1px solid var(--color-success);border-radius:var(--radius-md);padding:var(--space-5);">
+          <p style="font-weight:700;color:var(--color-success);margin-bottom:var(--space-2);font-size:var(--text-sm);">☁️ 云端虚拟机（Docker、AWS、GCP、Azure）</p>
+          <p style="font-size:var(--text-sm);color:var(--color-text-secondary);margin:0;">始终从干净状态启动。无需快照恢复。<code style="font-family:var(--font-mono);font-size:var(--text-xs);">is_environment_used = False</code></p>
+        </div>
+        <div style="background:var(--color-error-light);border:1px solid var(--color-error);border-radius:var(--radius-md);padding:var(--space-5);">
+          <p style="font-weight:700;color:var(--color-error);margin-bottom:var(--space-2);font-size:var(--text-sm);">🖥️ 本地虚拟机（VMware、VirtualBox）</p>
+          <p style="font-size:var(--text-sm);color:var(--color-text-secondary);margin:0;">始终从"脏"状态启动。首次使用前必须恢复快照。<code style="font-family:var(--font-mono);font-size:var(--text-xs);">is_environment_used = True</code></p>
+        </div>
+      </div>
+
+      <div class="callout callout-accent animate-in">
+        <span class="callout-icon" aria-hidden="true">⚡</span>
+        <div class="callout-content">
+          <span class="callout-title">为什么这很重要：8 小时 vs. 不到 1 小时</span>
+          <p>这一项优化就是 AWS 评估能在 1 小时内完成而非需要 8 小时以上的原因。跳过快照恢复步骤——每个任务需要 30&ndash;60 秒 &times; 369 个任务——节省了超过 3 小时的实际时间。加上<span class="term" data-definition="同时运行多个任务或虚拟机。不是依次完成任务 1、任务 2、任务 3，而是同时运行所有任务——大幅缩短总时间。">并行性</span>（10 个以上虚拟机同时运行），算下来大约有 10&times; 的加速效果。</p>
+        </div>
+      </div>
+
+      <!-- ── QUIZ ───────────────────────────────────────────── -->
+      <div class="quiz-container animate-in" id="quiz-module3">
+        <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-6);">检验您的理解</p>
+
+        <!-- Question 1 -->
+        <div class="quiz-question-block"
+             data-correct="option-a"
+             data-explanation-right="快照恢复正是关键所在——无论上一个任务做了什么，每个任务都能获得完全相同的、完好的环境。"
+             data-explanation-wrong="OSWorld 会在每个任务之间将虚拟机恢复到干净的快照，因此之前运行的污染是不可能发生的。">
+          <p class="quiz-question">一个 AI 智能体在任务中意外更改了某项系统设置。下一个任务会发生什么？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              什么都不会发生——虚拟机会在下一个任务开始前恢复到其快照
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              下一个任务因设置仍被更改而失败
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              实验停止，研究人员必须手动修复
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="并行性是关键——有了 10 个并行运行的虚拟机，您可以同时执行 10 个任务而不是逐个执行。AWS 还跳过了快照恢复步骤，因为它每次都从干净状态启动。"
+             data-explanation-wrong="任务是相同的——不同的是基础设施。AWS 的优势在于通过并行性提升速度，而不是任务难度。">
+          <p class="quiz-question">您正在 AWS 上运行 OSWorld，并行评估 10 个 AI 模型完成全部 369 个任务。与笔记本上的 VMware 相比，主要优势是什么？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              AWS 上的任务更难，能给您提供更可靠的评分
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              您可以同时运行多个虚拟机，将评估时间从数天缩短到 1 小时以内
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              AWS 会自动修复 AI 智能体代码中的 bug
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module3')">检查答案</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module3')">重置</button>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</section>
+<section class="module" id="module-4" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+
+    <!-- Module Header -->
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">眼睛与双手</h1>
+      <p class="module-subtitle">AI 智能体如何感知屏幕、决定操作，并逐步控制计算机。</p>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 1 — How the agent sees
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="screen animate-in" id="screen-4-1">
+      <h2 class="screen-heading">AI 实际上"看到"了什么？</h2>
+
+      <p>当你看着电脑屏幕时，你能立刻辨认出按钮、菜单和文本框。AI 智能体也需要做同样的事——但它接收到的只是数据。可以把它想象成一台<strong>远程控制的机器人外科医生</strong>：外科医生需要摄像头来看清手术区域，机械臂才能移动。OSWorld 为智能体提供了三种不同的"摄像模式"供选择。</p>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in" style="border-top-color: #2A7B9B;">
+          <div class="pattern-icon" style="background: var(--color-info-light);">&#128247;</div>
+          <div class="pattern-title">
+            <span class="term" data-definition="截图观测是将虚拟机屏幕的 PNG 图像直接发送给大语言模型。模型通过观察图像来读取文字、识别按钮并理解布局——就像人类看屏幕一样。">截图</span>
+          </div>
+          <p class="pattern-desc">屏幕的照片。AI 将此图像发送给具有视觉能力的<span class="term" data-definition="LLM 即大语言模型（Large Language Model）——AI 的大脑（如 GPT-4o 或 Claude），用于读取截图并决定下一步采取什么行动。">大语言模型</span>（如 GPT-4o 或 Claude）。模型可以读取文字、识别按钮、理解布局——只需看图即可。</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top-color: #7B6DAA;">
+          <div class="pattern-icon" style="background: #F3F0FA;">&#128196;</div>
+          <div class="pattern-title">
+            <span class="term" data-definition="无障碍树是一种 XML 文档，列出屏幕上每个 UI 元素（按钮、文本框、菜单）及其位置、标签和状态。屏幕阅读器使用相同的数据。对于擅长阅读结构化文本而非解析图像的大语言模型来说非常有用。">无障碍树</span>
+          </div>
+          <p class="pattern-desc">以文本格式列出每个<span class="term" data-definition="UI 元素是屏幕上任何可交互的组件：按钮、文本框、复选框、菜单、链接、滑块。每个元素都有类型、标签和位置。">UI 元素</span>——按钮、文本框、菜单——及其位置和状态。就像屏幕的蓝图。非常适合擅长读取文本而非图像的大语言模型。</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top-color: #2D8B55;">
+          <div class="pattern-icon" style="background: var(--color-success-light);">&#127922;</div>
+          <div class="pattern-title">
+            <span class="term" data-definition="SOM（标记集合）是在截图中每个可点击元素周围绘制编号边界框的截图。AI 只需说"点击第 42 号框"，而无需计算精确的像素坐标——减少了视觉噪音和推理错误。">SOM（标记集合）</span>
+          </div>
+          <p class="pattern-desc">在截图中每个可点击元素周围绘制编号框。AI 只需说"点击第 42 号框"，而无需计算<span class="term" data-definition="坐标（或像素坐标）是屏幕上某点的 (x, y) 位置，以像素为单位从左上角开始计量。例如，(452, 87) 表示距左边缘 452 像素、距顶部 87 像素。">坐标</span>。减少视觉噪音。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">&#128270;</span>
+        <div class="callout-content">
+          <span class="callout-title">应该选择哪种摄像模式？</span>
+          <p>这取决于所用的模型。具有视觉能力的大语言模型（如 GPT-4o）能很好地处理截图。以文本为主的模型更适合使用<span class="term" data-definition="无障碍树是一种 XML 文档，列出屏幕上每个 UI 元素（按钮、文本框、菜单）及其位置、标签和状态。屏幕阅读器使用相同的数据。">无障碍树</span>。<span class="term" data-definition="SOM（标记集合）是在截图中每个可点击元素周围绘制编号边界框的截图。AI 只需说"点击第 42 号框"，而无需计算精确的像素坐标。">SOM</span> 是一种折中方案——提供视觉上下文，同时减少点击位置的歧义。OSWorld 允许你切换<span class="term" data-definition="观测类型是控制智能体"看到"什么内容的设置：仅截图、仅无障碍树、截图+无障碍树，或 SOM（标记集合）。在启动时选择。">观测类型</span>，以便公平比较结果。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 2 — Code: _get_obs()
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="screen animate-in" id="screen-4-2">
+      <h2 class="screen-heading">截图的代码实现</h2>
+
+      <p>每当智能体需要查看屏幕内容时，环境就会调用 <code>_get_obs()</code>。该函数将一小包信息整合在一起——截图、可选的<span class="term" data-definition="无障碍树是一种 XML 文档，列出屏幕上每个 UI 元素（按钮、文本框、菜单）及其位置、标签和状态。屏幕阅读器使用相同的数据。">无障碍树</span>、可选的终端输出以及原始任务指令——并将这些信息全部传递给智能体。以下是完整代码，右侧附有通俗解释。</p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">desktop_env/desktop_env.py</span>
+<span class="code-line"><span class="code-keyword">def</span> <span class="code-function">_get_obs</span>(<span class="code-variable">self</span>):</span>
+<span class="code-line">    <span class="code-keyword">return</span> {</span>
+<span class="code-line">        <span class="code-string">"screenshot"</span><span class="code-operator">:</span></span>
+<span class="code-line">            <span class="code-variable">self</span><span class="code-operator">.</span><span class="code-variable">controller</span></span>
+<span class="code-line">            <span class="code-operator">.</span><span class="code-function">get_screenshot</span>(),</span>
+<span class="code-line">&nbsp;</span>
+<span class="code-line">        <span class="code-string">"accessibility_tree"</span><span class="code-operator">:</span></span>
+<span class="code-line">            <span class="code-variable">self</span><span class="code-operator">.</span><span class="code-variable">controller</span></span>
+<span class="code-line">            <span class="code-operator">.</span><span class="code-function">get_accessibility_tree</span>()</span>
+<span class="code-line">            <span class="code-keyword">if</span> <span class="code-variable">self</span><span class="code-operator">.</span><span class="code-variable">require_a11y_tree</span></span>
+<span class="code-line">            <span class="code-keyword">else</span> <span class="code-keyword">None</span>,</span>
+<span class="code-line">&nbsp;</span>
+<span class="code-line">        <span class="code-string">"terminal"</span><span class="code-operator">:</span></span>
+<span class="code-line">            <span class="code-variable">self</span><span class="code-operator">.</span><span class="code-variable">controller</span></span>
+<span class="code-line">            <span class="code-operator">.</span><span class="code-function">get_terminal_output</span>()</span>
+<span class="code-line">            <span class="code-keyword">if</span> <span class="code-variable">self</span><span class="code-operator">.</span><span class="code-variable">require_terminal</span></span>
+<span class="code-line">            <span class="code-keyword">else</span> <span class="code-keyword">None</span>,</span>
+<span class="code-line">&nbsp;</span>
+<span class="code-line">        <span class="code-string">"instruction"</span><span class="code-operator">:</span></span>
+<span class="code-line">            <span class="code-variable">self</span><span class="code-operator">.</span><span class="code-variable">instruction</span></span>
+<span class="code-line">    }</span>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">通俗解释</span>
+          <div class="translation-lines">
+            <div class="tl"><strong><code>self.controller.get_screenshot()</code></strong><br>立即对虚拟机屏幕进行快照——始终包含，每一步都执行。</div>
+            <div class="tl"><strong><code>get_accessibility_tree() if self.require_a11y_tree else None</code></strong><br>获取所有<span class="term" data-definition="UI 元素是屏幕上任何可交互的组件：按钮、文本框、复选框、菜单、链接、滑块。每个元素都有类型、标签和位置。">UI 元素</span>的列表——但仅在启动时明确请求的情况下。否则跳过。</div>
+            <div class="tl"><strong><code>get_terminal_output() if self.require_terminal else None</code></strong><br>获取终端输出——仅在需要时。对涉及命令行的任务很有用。</div>
+            <div class="tl"><strong><code>"instruction": self.instruction</code></strong><br>包含原始任务指令，确保智能体始终记得自己要做什么——即使在第 14 步也不例外。</div>
+          </div>
+        </div>
+      </div>
+
+      <p>注意这个模式：该函数默认是轻量级的——只有在启动时明确启用的情况下，才会获取额外数据（无障碍树、终端）。智能体只为它实际使用的内容付出代价。</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 3 — How the agent acts
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="screen animate-in" id="screen-4-3">
+      <h2 class="screen-heading">机械臂：PyAutoGUI</h2>
+
+      <p>看见屏幕只完成了一半的工作。另一半是控制计算机。OSWorld 使用<span class="term" data-definition="PyAutoGUI 是一个以编程方式控制鼠标和键盘的 Python 库。它发送底层操作系统命令——就像人类移动实体鼠标并按下真实按键一样。">PyAutoGUI</span>——一个可以像人类一样移动鼠标、点击和输入的 Python 库。<span class="term" data-definition="LLM 即大语言模型——读取截图并将下一步操作生成为 PyAutoGUI 命令字符串的 AI 大脑。">大语言模型</span>以文本形式生成这些命令，环境在虚拟机内部执行它们。</p>
+
+      <div class="badge-list">
+        <div class="badge-item">
+          <span class="badge-code">pyautogui.click(452, 87)</span>
+          <span class="badge-desc">在屏幕上<span class="term" data-definition="坐标（或像素坐标）是屏幕上某点的 (x, y) 位置，以像素为单位从左上角开始计量。例如，(452, 87) 表示距左边缘 452 像素、距顶部 87 像素。">x=452, y=87</span> 处点击——<span class="term" data-definition="像素是屏幕上最小的可寻址元素。一块 1920×1080 的屏幕横向有 1920 个像素，纵向有 1080 个像素。像素坐标精确定位该网格上的某个位置。">像素</span>坐标</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-code">pyautogui.typewrite(&apos;hello&apos;)</span>
+          <span class="badge-desc">将单词"hello"逐字符输入到当前焦点字段中</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-code">pyautogui.hotkey(&apos;ctrl&apos;, &apos;s&apos;)</span>
+          <span class="badge-desc">按下 Ctrl+S——保存当前文件</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-code">pyautogui.scroll(0, -3)</span>
+          <span class="badge-desc">向下滚动鼠标滚轮 3 格</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-code">pyautogui.rightClick(300, 200)</span>
+          <span class="badge-desc">在 (300, 200) 处右键单击以打开<span class="term" data-definition="右键菜单是当你右键单击某物时弹出的小型菜单，提供与所点击对象相关的操作（剪切、复制、粘贴、打开方式等）。">右键菜单</span></span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-code">pyautogui.dragTo(800, 400)</span>
+          <span class="badge-desc">点击并拖动到新位置——用于拖动文件或滑块</span>
+        </div>
+      </div>
+
+      <div class="callout callout-accent">
+        <span class="callout-icon">&#128064;</span>
+        <div class="callout-content">
+          <span class="callout-title">PyAutoGUI 是"盲目的"——它只管发指令，不管结果</span>
+          <p><span class="term" data-definition="PyAutoGUI 是一个以编程方式控制鼠标和键盘的 Python 库。它发送底层操作系统命令——就像人类移动实体鼠标并按下真实按键一样。">PyAutoGUI</span> 只是向操作系统发送命令，并不知道命令是否生效。智能体必须查看新截图才能知道发生了什么。这与人类远程控制计算机的方式完全相同——你点击，然后查看点击是否有效果。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 4 — The agent loop (data flow animation)
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="screen animate-in" id="screen-4-4">
+      <h2 class="screen-heading">运行 15 次的循环</h2>
+
+      <p>智能体最多有 <strong>15 步</strong>来完成一项任务。每一步都遵循相同的循环：查看屏幕 &rarr; 询问<span class="term" data-definition="LLM 即大语言模型——AI 的大脑（如 GPT-4o 或 Claude），用于读取截图并决定下一步采取什么行动。">大语言模型</span> &rarr; 执行一个动作 &rarr; 再次查看。四个参与者在每个循环中来回传递数据。点击<strong>下一步</strong>观看完整的一次循环。</p>
+
+      <div class="flow-animation" data-steps='[
+        {"highlight":"flow-actor-1","label":"第 1 步 — DesktopEnv 捕获当前虚拟机屏幕，并将其与任务指令一起打包成观测对象。"},
+        {"highlight":"flow-actor-2","label":"第 2 步 — Agent 接收观测对象。它将截图编码为 base64 文本，以便在 JSON 消息中传输。","packet":true,"from":"flow-actor-1","to":"flow-actor-2"},
+        {"highlight":"flow-actor-3","label":"第 3 步 — Agent 将消息发送给 LLM API：「这是屏幕截图，任务是找到衬衫，我该怎么做？」","packet":true,"from":"flow-actor-2","to":"flow-actor-3"},
+        {"highlight":"flow-actor-3","label":"第 4 步 — LLM API 思考……它读取截图，推理任务，并生成 PyAutoGUI 命令作为回应。"},
+        {"highlight":"flow-actor-2","label":"第 5 步 — LLM API 将命令返回给 Agent：pyautogui.click(200, 150) — 点击男士菜单。","packet":true,"from":"flow-actor-3","to":"flow-actor-2"},
+        {"highlight":"flow-actor-1","label":"第 6 步 — Agent 将动作转发给 DesktopEnv，后者在实时虚拟机上执行该动作。","packet":true,"from":"flow-actor-2","to":"flow-actor-1"},
+        {"highlight":"flow-actor-4","label":"第 7 步 — DesktopEnv 将鼠标点击命令发送给虚拟机。屏幕发生变化。","packet":true,"from":"flow-actor-1","to":"flow-actor-4"},
+        {"highlight":"flow-actor-1","label":"第 8 步 — 虚拟机屏幕更新。DesktopEnv 捕获新截图并将其发送回 Agent。一步完成——再次循环。","packet":true,"from":"flow-actor-4","to":"flow-actor-1"}
+      ]'>
+
+        <div class="flow-actors">
+          <div class="flow-actor" id="flow-actor-1" style="--actor-color: #2A7B9B;">
+            <div class="flow-actor-icon" style="border-color: #2A7B9B20;">&#128187;</div>
+            <span>DesktopEnv</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-2" style="--actor-color: #D94F30;">
+            <div class="flow-actor-icon" style="border-color: #D94F3020;">&#129302;</div>
+            <span>Agent</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-3" style="--actor-color: #7B6DAA;">
+            <div class="flow-actor-icon" style="border-color: #7B6DAA20;">&#129504;</div>
+            <span>LLM API</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-4" style="--actor-color: #2D8B55;">
+            <div class="flow-actor-icon" style="border-color: #2D8B5520;">&#128444;</div>
+            <span>VM Screen</span>
+          </div>
+        </div>
+
+        <div class="flow-packet"></div>
+        <div class="flow-step-label">点击"下一步"开始</div>
+        <div class="flow-controls">
+          <button class="quiz-check-btn flow-next-btn">下一步</button>
+          <button class="quiz-reset-btn flow-reset-btn">重置</button>
+          <span class="flow-progress"></span>
+        </div>
+      </div>
+
+      <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">驱动此循环的代码位于 <code>lib_run_single.py</code>。外层的 <code>while not done and step_idx &lt; max_steps</code> 守卫确保智能体不会永远运行——即使任务未完成，也会在 15 步后停止。</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 5 — The LLM in the middle + code
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="screen animate-in" id="screen-4-5">
+      <h2 class="screen-heading">大脑：向大语言模型发送消息</h2>
+
+      <p>这里展示了智能体与大语言模型对话的确切时刻。它构建了一条消息，包含两部分内容：一段告诉大语言模型要做什么的文本提示，以及附加的截图图像。这与你将截图粘贴到 ChatGPT 并提问的结构完全相同——只是自动化了。</p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">mm_agents/agent.py</span>
+<span class="code-line"><span class="code-variable">messages</span><span class="code-operator">.</span><span class="code-function">append</span>({</span>
+<span class="code-line">  <span class="code-string">"role"</span><span class="code-operator">:</span> <span class="code-string">"user"</span>,</span>
+<span class="code-line">  <span class="code-string">"content"</span><span class="code-operator">:</span> [</span>
+<span class="code-line">    {</span>
+<span class="code-line">      <span class="code-string">"type"</span><span class="code-operator">:</span> <span class="code-string">"text"</span>,</span>
+<span class="code-line">      <span class="code-string">"text"</span><span class="code-operator">:</span> <span class="code-string">"Given the screenshot</span></span>
+<span class="code-line"><span class="code-string">        as below. What&apos;s the</span></span>
+<span class="code-line"><span class="code-string">        next step that you will</span></span>
+<span class="code-line"><span class="code-string">        do to help with the task?"</span></span>
+<span class="code-line">    },</span>
+<span class="code-line">    {</span>
+<span class="code-line">      <span class="code-string">"type"</span><span class="code-operator">:</span> <span class="code-string">"image_url"</span>,</span>
+<span class="code-line">      <span class="code-string">"image_url"</span><span class="code-operator">:</span> {</span>
+<span class="code-line">        <span class="code-string">"url"</span><span class="code-operator">:</span> <span class="code-keyword">f</span><span class="code-string">"data:image/png;</span></span>
+<span class="code-line"><span class="code-string">          base64,{base64_image}"</span>,</span>
+<span class="code-line">        <span class="code-string">"detail"</span><span class="code-operator">:</span> <span class="code-string">"high"</span></span>
+<span class="code-line">      }</span>
+<span class="code-line">    }</span>
+<span class="code-line">  ]</span>
+<span class="code-line">})</span>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">通俗解释</span>
+          <div class="translation-lines">
+            <div class="tl"><strong><code>"role": "user"</code></strong><br>这条消息来自对话的用户一侧——智能体扮演着与<span class="term" data-definition="LLM 即大语言模型——AI 的大脑（如 GPT-4o 或 Claude），用于读取截图并决定下一步采取什么行动。">大语言模型</span>对话的"用户"角色。</div>
+            <div class="tl"><strong><code>"type": "text", "text": "Given the screenshot..."</code></strong><br>首先告诉大语言模型我们希望它做什么：查看屏幕并决定下一步行动。图像之前的纯文本指令。</div>
+            <div class="tl"><strong><code>"type": "image_url"</code></strong><br>将截图作为图像附加上去。大语言模型在一条消息中同时接收文本提示和图像。</div>
+            <div class="tl"><strong><code>f"data:image/png;base64,{base64_image}"</code></strong><br>截图被编码为<span class="term" data-definition="Base64 是一种将二进制数据（如 PNG 图像）转换为纯文本字符的方式，使其能够安全地在 JSON 消息中传输。它使文件大小增加约 33%，但无需特殊处理。">base64</span>——一种用于二进制数据的文本格式——以便在 JSON 消息中传输而不会损坏。</div>
+            <div class="tl"><strong><code>"detail": "high"</code></strong><br>告诉大语言模型以高分辨率分析图像，而不是快速的低分辨率预览。消耗更多 token，但能识别小字和 UI 细节。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">&#128260;</span>
+        <div class="callout-content">
+          <span class="callout-title">OSWorld 通过相同接口支持多种大语言模型</span>
+          <p>OSWorld 支持多种大语言模型：GPT-4o、Claude、Gemini、Qwen（DashScope）以及通过相同 PromptAgent 接口接入的开源模型。该基准测试允许你切换任意模型并进行公平比较——运行时只需更改 <code>--model</code> 参数。智能体代码保持不变。</p>
+        </div>
+      </div>
+
+      <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-6); border-left: 4px solid var(--color-accent); margin-top: var(--space-8);">
+        <p style="font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); color: var(--color-accent);">下一章 &rarr;</p>
+        <p style="margin: 0; color: var(--color-text-secondary);">智能体已经点击和输入——但它真的完成任务了吗？下一模块：OSWorld 如何判断任务是否真正正确地完成了。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="module" id="module-5" style="background: var(--color-bg)">
+  <div class="module-content">
+
+    <!-- Module Header -->
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">最终裁决</h1>
+      <p class="module-subtitle">OSWorld 如何判断 AI 是否真正完成了任务？答案是 369 项具体、客观、可重复的检查——就像一场有标准化检查清单的驾驶考试。</p>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 1 — Knowing When You&apos;re Done
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-5-1">
+      <h2 class="screen-heading">如何判断任务已完成</h2>
+
+      <p>构建 AI <span class="term" data-definition="基准测试是一种用于衡量和比较性能的标准化测试。所有参赛者在相同条件下面对完全相同的挑战，因此分数具有可比性。">基准测试</span>的难点在于：如何知道任务是否真正完成了？人工评审可以看着屏幕做判断——但这种方式无法扩展到数千次测试。</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-8) 0;">
+        <div style="background: var(--color-info-light); border-radius: var(--radius-md); padding: var(--space-6); border-top: 3px solid #2A7B9B;">
+          <p style="font-family: var(--font-display); font-weight: 700; margin-bottom: var(--space-3); color: #2A7B9B;">&#128100; 人工评估</p>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3);">准确但缓慢。研究人员逐一查看每个结果，无法大规模运行。</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-2);">
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 灵活且细致入微</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10007;&nbsp; 缓慢——每项任务需要数分钟</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10007;&nbsp; 评审者之间结果不一致</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10007;&nbsp; 无法大规模完成 369 项任务</li>
+          </ul>
+        </div>
+        <div style="background: var(--color-success-light); border-radius: var(--radius-md); padding: var(--space-6); border-top: 3px solid var(--color-success);">
+          <p style="font-family: var(--font-display); font-weight: 700; margin-bottom: var(--space-3); color: var(--color-success);">&#129302; 自动化评估</p>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3);">快速且可扩展，但必须针对每项任务精心设计。OSWorld 采用这种方式——共有 369 种不同的评估策略。</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-2);">
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 每项任务数秒内完成</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 完全一致</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10003;&nbsp; 可扩展至任意数量的运行</li>
+            <li style="font-size: var(--text-sm); color: var(--color-text-secondary);">&#10007;&nbsp; 需要前期精心设计</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-accent">
+        <span class="callout-icon">&#127942;</span>
+        <div class="callout-content">
+          <span class="callout-title">OSWorld 的重要贡献之一</span>
+          <p>针对 369 项任务中的每一项，研究人员都设计了一种具体、客观且<span class="term" data-definition="可重复性意味着在相同条件下每次运行相同测试都能得到相同结果。OSWorld 的自动化评估器始终执行完全相同的检查——不存在人为差异。">可重复</span>的检查方式。就像一场有标准化检查清单的驾驶考试。考官不会根据"你看起来有没有自信"来打分——他们检查的是：是否在路灯处停车？是否检查了后视镜？是否在锥桶范围内完成了侧方停车？这项工作耗费了数月的精心设计。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 2 — Anatomy of a Task Config
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-5-2">
+      <h2 class="screen-heading">任务规则手册：JSON 结构解析</h2>
+
+      <p>每项 OSWorld 任务都在一个 <span class="term" data-definition="JSON（JavaScript 对象表示法）是一种轻量级的结构化数据文本格式。它使用键值对，如 {'key': 'value'}，且易于人类阅读。">JSON</span> 文件中定义。该文件不仅描述要做什么——还精确描述如何检验任务是否正确完成。以下是各部分的含义：</p>
+
+      <!-- Badge-list annotation -->
+      <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-6); margin: var(--space-6) 0;">
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.05em;">任务 JSON 字段说明</p>
+        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+            <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap; flex-shrink: 0;">&quot;instruction&quot;</code>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">给 AI 智能体的自然语言指令，即用普通语言描述的任务内容。</p>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+            <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap; flex-shrink: 0;">&quot;snapshot&quot;</code>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">从哪个虚拟机<span class="term" data-definition="快照是在特定时刻保存的虚拟机完整状态副本。OSWorld 在每次任务运行前从快照恢复，为每个智能体提供干净、一致的起始环境。">快照</span>开始。例如，"chrome" 表示预装了 Chrome 并已就绪的虚拟机。</p>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+            <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap; flex-shrink: 0;">&quot;config&quot;</code>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">智能体启动前执行的设置步骤：启动应用、打开网址、预填数据。这将环境初始化为正确的起始状态。</p>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+            <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap; flex-shrink: 0;">&quot;evaluator.func&quot;</code>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">评分时调用的<span class="term" data-definition="指标是一个函数，它将实际结果与预期值进行比较并返回 0 到 1 之间的分数。不同的指标适用于不同类型的任务。">指标</span>函数。例如，<code>check_direct_json_object</code> 逐字段比较 JSON 对象。</p>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+            <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap; flex-shrink: 0;">&quot;evaluator.result&quot;</code>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">如何从虚拟机<em>获取</em>实际结果。例如，解析当前浏览器 URL 并提取其过滤参数。</p>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+            <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap; flex-shrink: 0;">&quot;evaluator.expected&quot;</code>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">用于比较的预期值，即评估器用来检验智能体结果的"正确答案"。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code ↔ English Translation Block -->
+      <p>以下是衬衫任务的评估器部分，并附有每行的中文说明：</p>
+
+      <div class="translation-block">
+        <div class="translation-code">
+          <span class="translation-label">evaluator (from task JSON)</span>
+<span class="code-line"><span class="code-property">&quot;evaluator&quot;</span><span class="code-operator">:</span> <span class="code-operator">{</span></span>
+<span class="code-line">  <span class="code-property">&quot;func&quot;</span><span class="code-operator">:</span> <span class="code-string">&quot;check_direct_json_object&quot;</span>,</span>
+<span class="code-line">  <span class="code-property">&quot;result&quot;</span><span class="code-operator">:</span> <span class="code-operator">{</span></span>
+<span class="code-line">    <span class="code-property">&quot;type&quot;</span><span class="code-operator">:</span> <span class="code-string">&quot;url_path_parse&quot;</span>,</span>
+<span class="code-line">    <span class="code-property">&quot;parse_keys&quot;</span><span class="code-operator">:</span> <span class="code-operator">[</span></span>
+<span class="code-line">      <span class="code-string">&quot;Men_regular_size_t&quot;</span>,</span>
+<span class="code-line">      <span class="code-string">&quot;Price_discount_range&quot;</span></span>
+<span class="code-line">    <span class="code-operator">]</span></span>
+<span class="code-line">  <span class="code-operator">}</span>,</span>
+<span class="code-line">  <span class="code-property">&quot;expected&quot;</span><span class="code-operator">:</span> <span class="code-operator">{</span></span>
+<span class="code-line">    <span class="code-property">&quot;type&quot;</span><span class="code-operator">:</span> <span class="code-string">&quot;rule&quot;</span>,</span>
+<span class="code-line">    <span class="code-property">&quot;rules&quot;</span><span class="code-operator">:</span> <span class="code-operator">{</span></span>
+<span class="code-line">      <span class="code-property">&quot;expected&quot;</span><span class="code-operator">:</span> <span class="code-operator">{</span></span>
+<span class="code-line">        <span class="code-property">&quot;Men_regular_size_t&quot;</span><span class="code-operator">:</span> <span class="code-string">&quot;L&quot;</span>,</span>
+<span class="code-line">        <span class="code-property">&quot;Price_discount_range&quot;</span><span class="code-operator">:</span></span>
+<span class="code-line">          <span class="code-string">&quot;50_PERCENT_ off &amp;amp; more&quot;</span></span>
+<span class="code-line">      <span class="code-operator">}</span></span>
+<span class="code-line">    <span class="code-operator">}</span></span>
+<span class="code-line">  <span class="code-operator">}</span></span>
+<span class="code-line"><span class="code-operator">}</span></span>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文说明</span>
+          <div class="translation-lines">
+            <div class="tl"><strong>&quot;func&quot;: &quot;check_direct_json_object&quot;</strong> &rarr; 使用这个特定的比较函数对结果评分——它逐字段检查 JSON 对象。</div>
+            <div class="tl"><strong>&quot;type&quot;: &quot;url_path_parse&quot;</strong> &rarr; 通过将当前浏览器 URL 解析为键值对来获取结果（就像读取一张收据）。</div>
+            <div class="tl"><strong>&quot;parse_keys&quot;: [...]</strong> &rarr; 在 URL 中查找这些特定参数——忽略其他所有内容。</div>
+            <div class="tl"><strong>&quot;type&quot;: &quot;rule&quot;</strong> &rarr; 预期值是硬编码在此文件中的规则，而非运行时从其他地方获取。</div>
+            <div class="tl"><strong>&quot;Men_regular_size_t&quot;: &quot;L&quot;</strong> &rarr; URL 中的尺码过滤参数必须等于 &apos;L&apos;（大码）。</div>
+            <div class="tl"><strong>&quot;Price_discount_range&quot;: &quot;50_PERCENT_...&quot;</strong> &rarr; URL 中的折扣过滤参数必须是"5折及以下"——完全按照 Macy&apos;s 的编码方式。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 3 — Two Steps to a Score
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-5-3">
+      <h2 class="screen-heading">两步得出分数</h2>
+
+      <p>评估器始终有两项工作：<strong>（1）</strong>从虚拟机中提取实际状态，以及<strong>（2）</strong>将其与预期状态进行比较。这两个角色各有名称：<span class="term" data-definition="获取器是评估器中负责提取证据的部分——它运行命令、读取文件、解析 URL 或截屏，以查明虚拟机当前所处的状态。">获取器</span>和<span class="term" data-definition="指标是评估器中负责评定证据的部分。它将获取器提取的值与预期值进行比较，并返回 0 到 1 之间的分数。">指标</span>。</p>
+
+      <div class="icon-rows" style="margin: var(--space-6) 0;">
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: #2D8B55; color: white; font-size: var(--text-xl);">&#128270;</div>
+          <div>
+            <strong>获取器——提取证据</strong>
+            <p>运行命令、读取文件、解析 URL 或截屏。返回虚拟机当前的实际状态——智能体完成操作后真实发生的情况。</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: #2A7B9B; color: white; font-size: var(--text-xl);">&#9878;</div>
+          <div>
+            <strong>指标——评定证据</strong>
+            <p>将提取的值与预期值进行比较，返回 0 到 1 之间的分数。1 表示任务按要求完整完成，0 表示未完成。</p>
+          </div>
+        </div>
+      </div>
+
+      <p>以下是最常见的获取器类型——OSWorld 从虚拟机中提取状态的各种方式：</p>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-success-light);">&#128279;</div>
+          <div class="pattern-title"><code>url_path_parse</code></div>
+          <p class="pattern-desc">检查 Chrome 中打开的 URL 并解析其<span class="term" data-definition="查询参数是编码在 URL 中 '?' 符号后面的键值对。例如：macys.com/shop?size=L&discount=50——'size' 和 'discount' 就是查询参数。">查询参数</span>。适用于以过滤后网页结束的任务。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-info-light);">&#128196;</div>
+          <div class="pattern-title"><code>file</code></div>
+          <p class="pattern-desc">从虚拟机<span class="term" data-definition="文件系统是组织计算机磁盘上文件和文件夹的结构。OSWorld 可以在评估过程中读取、写入和检查文件。">文件系统</span>读取文件并比较其内容。用于需要保存文档或导出文件的任务。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-accent-light);">&#128187;</div>
+          <div class="pattern-title"><code>vm_command_output</code></div>
+          <p class="pattern-desc">在虚拟机上运行<span class="term" data-definition="Shell 命令是在终端（命令行）中输入的文本指令，用于告知操作系统执行某项操作。OSWorld 可以在虚拟机上运行 shell 命令来检查其状态。">shell 命令</span>并检查输出。适用于开发者任务——是否安装了正确的软件包？</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-error-light);">&#128065;</div>
+          <div class="pattern-title"><code>active_tab_info</code></div>
+          <p class="pattern-desc">检查 Chrome 中当前激活的标签页或页面。智能体最终是否到达了正确的网站？</p>
+        </div>
+      </div>
+
+      <p style="margin-top: var(--space-6);">以下是最常见的指标类型——OSWorld 将结果与预期进行比较的各种方式：</p>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-4);">
+        <div style="display: flex; align-items: center; gap: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-4);">
+          <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap;">check_direct_json_object</code>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">JSON 对象是否匹配？逐字段检查每个字段。</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-4);">
+          <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap;">compare_text</code>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">文本输出是否等于预期字符串？</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-4);">
+          <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap;">compare_table</code>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">电子表格看起来是否正确？检查行、列和单元格的值。</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-4);">
+          <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap;">compare_image</code>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">视觉相似度评分——用于图像编辑任务（GIMP 等）。</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-4);">
+          <code style="background: var(--color-accent-light); color: var(--color-accent); padding: 2px 8px; border-radius: var(--radius-sm); font-size: var(--text-sm); white-space: nowrap;">is_equal</code>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0;">简单等值检查——A 与 B 完全相同吗？是或否。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 4 — Group Chat: Grading a Task
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-5-4">
+      <h2 class="screen-heading">任务评分：幕后揭秘</h2>
+
+      <p>AI 智能体刚刚完成了衬衫任务的 15 个步骤。现在是评分时刻。观察导演、舞台和评审如何协作得出最终裁决。</p>
+
+      <div class="chat-window" id="chat-module5">
+        <div class="chat-messages">
+
+          <!-- msg 0 -->
+          <div class="chat-message" data-msg="0" data-sender="director" style="display:none">
+            <div class="chat-avatar" style="background: #2A7B9B">D</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2A7B9B">导演 (run.py)</span>
+              <p>智能体已完成任务 2888b4e6 的 15 个步骤。开始评估。</p>
+            </div>
+          </div>
+
+          <!-- msg 1 -->
+          <div class="chat-message" data-msg="1" data-sender="director" style="display:none">
+            <div class="chat-avatar" style="background: #2A7B9B">D</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2A7B9B">导演 (run.py)</span>
+              <p>DesktopEnv，调用 evaluate()</p>
+            </div>
+          </div>
+
+          <!-- msg 2 -->
+          <div class="chat-message" data-msg="2" data-sender="stage" style="display:none">
+            <div class="chat-avatar" style="background: #2D8B55">S</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2D8B55">舞台 (DesktopEnv)</span>
+              <p>正在运行获取器：对当前 Chrome 标签页执行 url_path_parse</p>
+            </div>
+          </div>
+
+          <!-- msg 3 -->
+          <div class="chat-message" data-msg="3" data-sender="stage" style="display:none">
+            <div class="chat-avatar" style="background: #2D8B55">S</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2D8B55">舞台 (DesktopEnv)</span>
+              <p>提取到 URL：macys.com/shop/mens_clothing/shirts?Men_regular_size_t=L&amp;amp;Price_discount_range=50_PERCENT__off_&amp;amp;_more&amp;amp;short_sleeve=true</p>
+            </div>
+          </div>
+
+          <!-- msg 4 -->
+          <div class="chat-message" data-msg="4" data-sender="stage" style="display:none">
+            <div class="chat-avatar" style="background: #2D8B55">S</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2D8B55">舞台 (DesktopEnv)</span>
+              <p>已解析键值：mens_clothing=true，shirts=true，size=L，discount=50%+，sleeve=short</p>
+            </div>
+          </div>
+
+          <!-- msg 5 -->
+          <div class="chat-message" data-msg="5" data-sender="critic" style="display:none">
+            <div class="chat-avatar" style="background: #7B6DAA">C</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #7B6DAA">评审 (Evaluator)</span>
+              <p>正在运行指标：check_direct_json_object</p>
+            </div>
+          </div>
+
+          <!-- msg 6 -->
+          <div class="chat-message" data-msg="6" data-sender="critic" style="display:none">
+            <div class="chat-avatar" style="background: #7B6DAA">C</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #7B6DAA">评审 (Evaluator)</span>
+              <p>正在将提取值与预期值比较…… mens_clothing: true 对比 true &#10003;</p>
+            </div>
+          </div>
+
+          <!-- msg 7 -->
+          <div class="chat-message" data-msg="7" data-sender="critic" style="display:none">
+            <div class="chat-avatar" style="background: #7B6DAA">C</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #7B6DAA">评审 (Evaluator)</span>
+              <p>Men_regular_size_t: L 对比 L &#10003;，Price_discount_range: 匹配 &#10003;，short_sleeve: true 对比 true &#10003;</p>
+            </div>
+          </div>
+
+          <!-- msg 8 -->
+          <div class="chat-message" data-msg="8" data-sender="critic" style="display:none">
+            <div class="chat-avatar" style="background: #7B6DAA">C</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #7B6DAA">评审 (Evaluator)</span>
+              <p>所有检查通过。得分：1.0</p>
+            </div>
+          </div>
+
+          <!-- msg 9 -->
+          <div class="chat-message" data-msg="9" data-sender="director" style="display:none">
+            <div class="chat-avatar" style="background: #2A7B9B">D</div>
+            <div class="chat-bubble">
+              <span class="chat-sender" style="color: #2A7B9B">导演 (run.py)</span>
+              <p>任务 2888b4e6：通过（1.0）。正在保存结果。</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="chat-typing" style="display:none">
+          <div class="chat-avatar" id="chat-module5-typing-avatar" style="background: #2A7B9B">D</div>
+          <div class="chat-typing-dots">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <div class="chat-controls">
+          <button class="btn btn-primary chat-next-btn">下一条消息</button>
+          <button class="btn chat-all-btn">全部播放</button>
+          <button class="btn chat-reset-btn">重置</button>
+          <span class="chat-progress">0 / 10 条消息</span>
+        </div>
+      </div>
+
+      <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-6);">注意，获取器先运行（提取 URL），然后指标再运行（比较解析后的值）。两个清晰的步骤。评审从不直接操作浏览器——舞台将已解析的数据交给它。就像驾驶考官只看检查清单，而不看汽车的传感器日志。</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCREEN 5 — The Leaderboard + Quiz
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="screen animate-in" id="screen-5-5">
+      <h2 class="screen-heading">解读排行榜</h2>
+
+      <p>OSWorld 发布了一个公开的<span class="term" data-definition="排行榜是一个展示不同 AI 模型在基准测试上得分的排名列表。OSWorld 的排行榜让研究人员能够使用相同的 369 项任务客观地比较各个模型。">排行榜</span>，每个模型的得分为 0 到 100%——即 369 项任务中正确完成的百分比。目前大多数模型的得分在 40% 到 70% 之间。达到 100% 仍是一个开放的研究问题。</p>
+
+      <p>这些任务根据所涉及的软件类型分为三个类别：</p>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-info-light);">&#128196;</div>
+          <div class="pattern-title">办公软件</div>
+          <p class="pattern-desc">LibreOffice Writer、Calc 和 Impress——编辑文档、电子表格和演示文稿。大量菜单导航和键盘快捷键操作。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-success-light);">&#127760;</div>
+          <div class="pattern-title">日常应用</div>
+          <p class="pattern-desc">Chrome、VLC、GIMP、Thunderbird——网页浏览、媒体播放、图像编辑和电子邮件。大多数人每天都会用到的任务。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background: var(--color-accent-light);">&#128736;</div>
+          <div class="pattern-title">专业工具</div>
+          <p class="pattern-desc">VSCode、Blender 及其他专业工具——开发者工作流程以及需要领域专业知识才能使用的软件。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-warning" style="margin-top: var(--space-8);">
+        <span class="callout-icon">&#9888;</span>
+        <div class="callout-content">
+          <span class="callout-title">为什么这么难？</span>
+          <p>真实的计算机界面难以预测。页面加载缓慢，弹窗不期而至，菜单有子菜单，按钮位置随窗口大小而变化。AI 必须在不崩溃的情况下应对这一切——而且只有 15 个步骤。这就是为什么即使是最好的模型也无法达到 100%：一次错误点击就可能导致整个任务失败。</p>
+        </div>
+      </div>
+
+      <!-- Quiz -->
+      <div class="quiz-container animate-in" id="quiz-module5">
+        <div class="quiz-header">
+          <span class="quiz-label">知识检验</span>
+          <h3 class="quiz-title">测试你的理解</h3>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="检查磁盘上是否存在特定 PDF 文件是验证下载任务最客观、最可重复的方式。截图方式不可靠（不同机器的渲染结果不同），而 URL 解析也无法确认文件是否已保存。"
+             data-explanation-wrong="截图比较很脆弱——不同机器的屏幕渲染结果不同。URL 解析只能告诉你浏览器在哪个页面，而无法确认文件是否已保存。直接检查文件系统是最可靠的方式。">
+          <div class="quiz-scenario">
+            <span class="quiz-scenario-label">场景</span>
+            <p>你正在为一项新任务构建 OSWorld 风格的评估器："将排名第一的搜索结果下载为 PDF。"AI 智能体刚刚完成了它的 15 个步骤。</p>
+          </div>
+          <p class="quiz-prompt">哪种获取器 + 指标的组合最合适？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              获取器：<code>screenshot</code> + 指标：<code>compare_image</code>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              获取器：<code>file</code>（检查是否保存了 PDF）+ 指标：<code>is_equal</code>（验证文件名）
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              获取器：<code>url_path_parse</code> + 指标：<code>check_direct_json_object</code>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question-block"
+             data-correct="option-c"
+             data-explanation-right="得分 0.0 意味着评估器已运行并发现结果与预期不符。AI 可能完整执行了 15 个步骤却没有崩溃，仍然得到 0 分——分数只反映最终状态，而非智能体的行为过程。"
+             data-explanation-wrong="0.0 分是评估器对最终状态的裁决——它不能告诉你智能体是如何运作的。智能体可能崩溃了，也可能步骤用完了，或者只是导航到了错误的页面。重要的是最终状态是否与预期匹配。">
+          <p class="quiz-prompt">AI 智能体在某项任务上获得了 0.0 分。这说明了什么？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              AI 崩溃了，无法执行任何操作
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              AI 在未完成任务的情况下耗尽了 15 个步骤
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              任务未按要求完成——至少有一项评估器检查返回了失败
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question-block"
+             data-correct="option-a"
+             data-explanation-right="可重复性是核心价值所在。如果任务 A 将 Chrome 留在某个特定页面，可能会影响任务 B 的结果。恢复到快照可以保证每个模型面对完全相同的起始环境——这正是排行榜有意义的原因。"
+             data-explanation-wrong="智能体通常不会使虚拟机崩溃——它们只是进行界面操作。截图文件很小，磁盘空间不是问题。快照恢复是为了公平性：每个模型必须面对相同的起始条件，分数才具有可比性。">
+          <p class="quiz-prompt">为什么 OSWorld 在每项任务前都要将虚拟机恢复到干净的<span class="term" data-definition="快照是在特定时刻保存的虚拟机完整状态副本。OSWorld 在每次任务运行前从快照恢复，为每个智能体提供干净、一致的起始环境。">快照</span>？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              确保每项任务从相同状态开始，使不同 AI 模型的结果具有可比性
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              因为 AI 智能体总会使虚拟机崩溃，需要重新开始
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <span class="quiz-option-radio"></span>
+              为了通过不保留旧截图来节省磁盘空间
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module5')">检查答案</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module5')">重置</button>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</section>
+  </main>
+
+</body>
+</html>
