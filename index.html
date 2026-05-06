@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XiYu · 个人主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-bar">
+      <span class="nav-logo">XiYu</span>
+      <div class="nav-links">
+        <a href="#courses">课程</a>
+        <a href="#about">关于</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ─────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">👋 你好，欢迎来到我的主页</div>
+        <h1 class="hero-title">XiYu</h1>
+        <p class="hero-sub">用 AI 构建，用 AI 学习。<br>这里记录我探索技术与创意边界的过程。</p>
+        <a href="#courses" class="btn-primary">探索课程 →</a>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">
+        <div class="deco-ring deco-ring-1"></div>
+        <div class="deco-ring deco-ring-2"></div>
+        <div class="deco-ring deco-ring-3"></div>
+      </div>
+    </section>
+
+    <!-- ── COURSES ──────────────────────────────────── -->
+    <section class="section" id="courses">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2 class="section-title">互动课程</h2>
+          <p class="section-desc">每门课程都是一个自包含的交互式网页，可以直接在浏览器中运行。</p>
+        </div>
+        <div class="course-grid" id="course-grid">
+          <div class="course-skeleton"></div>
+          <div class="course-skeleton"></div>
+          <div class="course-skeleton"></div>
+        </div>
+        <p class="no-courses" id="no-courses" style="display:none">课程目录正在加载中，或暂无课程。</p>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ────────────────────────────────────── -->
+    <section class="section section-alt" id="about">
+      <div class="section-inner about-layout">
+        <div class="about-text">
+          <h2 class="section-title">关于这个主页</h2>
+          <p>这里展示的课程由 AI 辅助生成，每门课程都把一个真实的开源项目或技术概念，转化为可以滚动浏览、有动画演示和互动测验的学习体验。</p>
+          <p>如果你也想把一个代码库变成这样的课程，可以试试 <code>codebase-to-course</code> 技能。</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num" id="stat-courses">–</span>
+            <span class="stat-label">门课程</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-modules">–</span>
+            <span class="stat-label">个模块</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 XiYu</span>
+      <a href="https://github.com/xyluorui/XiYu-s-Personal-Homepage" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

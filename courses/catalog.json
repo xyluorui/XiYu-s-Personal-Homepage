@@ -1,0 +1,17 @@
+{
+  "courses": [
+    {
+      "title": "OSWorld：AI 如何学会使用电脑",
+      "description": "深入探索 OSWorld 基准测试——AI 研究者用来衡量 AI 在真实电脑上完成任务能力的标准平台。五个交互式模块，带你从任务设计到评估机制全面理解这套系统。",
+      "modules": 5,
+      "date": "2026-05-06",
+      "tags": [
+        "AI",
+        "基准测试",
+        "智能体",
+        "研究"
+      ],
+      "path": "courses/osworld-course/"
+    }
+  ]
+}
