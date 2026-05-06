@@ -8,29 +8,50 @@
 </head>
 <body>
 
-  <!-- ── Global Nav (surface-black, 44px) ──────────── -->
+  <!-- ── Global Nav ─────────────────────────────────── -->
   <nav class="global-nav" id="global-nav">
     <div class="global-nav-inner">
       <a class="nav-wordmark" href="/">XiYu</a>
       <div class="nav-links">
         <a href="#courses">课程</a>
+        <a href="#practice">动手实践</a>
         <a href="#about">关于</a>
         <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
       </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <a href="#courses">课程</a>
+      <a href="#practice">动手实践</a>
+      <a href="#about">关于</a>
+      <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
     </div>
   </nav>
 
   <main>
 
     <!-- ── Tile 1: Hero (canvas-parchment) ───────────── -->
-    <section class="tile tile-parchment" id="hero">
+    <section class="tile tile-parchment hero-tile" id="hero">
       <div class="tile-inner tile-center">
         <p class="hero-eyebrow">个人主页</p>
         <h1 class="hero-display">XiYu</h1>
         <p class="hero-lead">用 AI 构建，用 AI 学习。<br>这里记录我探索技术与创意边界的过程。</p>
         <div class="cta-row">
           <a href="#courses" class="btn-primary">探索课程</a>
-          <a href="#about" class="btn-secondary">了解更多</a>
+          <a href="#practice" class="btn-secondary">动手实践</a>
+        </div>
+        <div class="hero-meta">
+          <a href="#courses" class="hero-meta-item" id="hero-stat-courses">
+            <span class="hero-meta-num">–</span>
+            <span class="hero-meta-label">门课程</span>
+          </a>
+          <div class="hero-meta-divider"></div>
+          <a href="#practice" class="hero-meta-item" id="hero-stat-articles">
+            <span class="hero-meta-num">–</span>
+            <span class="hero-meta-label">篇文章</span>
+          </a>
         </div>
       </div>
     </section>
@@ -39,25 +60,54 @@
     <section class="tile tile-dark" id="courses">
       <div class="tile-inner">
         <div class="tile-header">
-          <h2 class="display-lg">互动课程</h2>
-          <p class="tile-desc">每门课程都是一个自包含的交互式网页，可以直接在浏览器中运行。</p>
+          <div class="tile-header-row">
+            <div>
+              <h2 class="display-lg">互动课程</h2>
+              <p class="tile-desc">把真实的开源项目转化为可滚动浏览、有动画演示和互动测验的学习体验。</p>
+            </div>
+          </div>
         </div>
         <div class="course-grid" id="course-grid">
           <div class="course-skeleton"></div>
           <div class="course-skeleton"></div>
           <div class="course-skeleton"></div>
         </div>
-        <p class="no-courses" id="no-courses" style="display:none">课程目录加载中，或暂无课程。</p>
+        <p class="no-content" id="no-courses" style="display:none">暂无课程。</p>
       </div>
     </section>
 
-    <!-- ── Tile 3: About (canvas, light) ─────────────── -->
-    <section class="tile tile-light" id="about">
+    <!-- ── Tile 3: Practice (canvas-parchment) ───────── -->
+    <section class="tile tile-parchment" id="practice">
+      <div class="tile-inner">
+        <div class="tile-header">
+          <div class="tile-header-row">
+            <div>
+              <h2 class="display-lg" style="color:var(--ink)">动手实践</h2>
+              <p class="tile-desc-light">记录真实动手过程中的发现、踩坑与心得——从工具到 AI，从实验到产品。</p>
+            </div>
+          </div>
+        </div>
+        <div class="article-grid" id="article-grid">
+          <div class="article-skeleton"></div>
+          <div class="article-skeleton"></div>
+          <div class="article-skeleton"></div>
+          <div class="article-skeleton"></div>
+        </div>
+        <p class="no-content" id="no-articles" style="display:none">暂无文章，敬请期待。</p>
+      </div>
+    </section>
+
+    <!-- ── Tile 4: About (surface-tile-2, dark) ──────── -->
+    <section class="tile tile-dark-2" id="about">
       <div class="tile-inner about-grid">
         <div class="about-copy">
-          <h2 class="display-lg" style="color:#1d1d1f">关于</h2>
-          <p class="body-copy">这里展示的课程由 AI 辅助生成，每门课程都把一个真实的开源项目或技术概念，转化为可以滚动浏览、有动画演示和互动测验的学习体验。</p>
-          <p class="body-copy">如果你也想把一个代码库变成这样的课程，可以试试 <code>codebase-to-course</code> 技能。</p>
+          <h2 class="display-lg">关于</h2>
+          <p class="about-body">这里展示的内容由 AI 辅助生成与整理，每一门课程都把一个真实的开源项目转化为交互式学习体验，每一篇文章都记录了实际动手过程中的发现与思考。</p>
+          <p class="about-body">如果你也想把代码库变成课程，可以试试 <code>codebase-to-course</code> 技能。</p>
+          <div class="about-links">
+            <a href="https://github.com/xyluorui" target="_blank" rel="noopener" class="about-link">GitHub →</a>
+            <a href="https://github.com/xyluorui/XiYu-s-Personal-Homepage" target="_blank" rel="noopener" class="about-link">本站源码 →</a>
+          </div>
         </div>
         <div class="stat-stack">
           <div class="stat-item">
@@ -68,6 +118,10 @@
             <span class="stat-num" id="stat-modules">–</span>
             <span class="stat-label">个模块</span>
           </div>
+          <div class="stat-item">
+            <span class="stat-num" id="stat-articles">–</span>
+            <span class="stat-label">篇文章</span>
+          </div>
         </div>
       </div>
     </section>
@@ -77,16 +131,19 @@
   <!-- ── Footer (canvas-parchment) ─────────────────── -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-cols">
-        <div class="footer-col">
-          <span class="footer-heading">导航</span>
-          <a href="#courses">互动课程</a>
-          <a href="#about">关于</a>
-        </div>
-        <div class="footer-col">
-          <span class="footer-heading">链接</span>
-          <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://github.com/xyluorui/XiYu-s-Personal-Homepage" target="_blank" rel="noopener">本站源码</a>
+      <div class="footer-top">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-heading">探索</span>
+            <a href="#courses">互动课程</a>
+            <a href="#practice">动手实践</a>
+            <a href="#about">关于</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-heading">链接</span>
+            <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/xyluorui/XiYu-s-Personal-Homepage" target="_blank" rel="noopener">本站源码</a>
+          </div>
         </div>
       </div>
       <div class="footer-legal">
