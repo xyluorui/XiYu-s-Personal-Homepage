@@ -1,0 +1,25 @@
+# ── OS & Editor ────────────────────────────────────
+.DS_Store
+.DS_Store?
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Python ──────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ── Course build intermediates ──────────────────────
+# Only index.html / styles.css / main.js / course.json are needed per course.
+courses/*/briefs/
+courses/*/modules/
+courses/*/_base.html
+courses/*/_footer.html
+courses/*/build.sh
+
+# ── Generated catalog (rebuilt by Actions) ──────────
+# Uncomment if you prefer not to commit catalog.json locally.
+# courses/catalog.json
