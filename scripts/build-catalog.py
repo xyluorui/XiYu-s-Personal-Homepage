@@ -70,6 +70,32 @@ def build_articles():
     print(f"Generated articles/catalog.json with {len(articles)} article(s).")
 
 
+def build_recommendations():
+    recs_dir = ROOT / "recommendations"
+    catalog_path = recs_dir / "catalog.json"
+    recs_dir.mkdir(exist_ok=True)
+    recs = []
+    for d in sorted(recs_dir.iterdir()):
+        if not d.is_dir():
+            continue
+        meta_path = d / "recommendation.json"
+        if not meta_path.exists():
+            continue
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"  Skipping {d.name}: bad recommendation.json — {e}", file=sys.stderr)
+            continue
+        recs.append(meta)
+        print(f"  ✓ recommendation: {d.name} — {meta.get('title', '(no title)')}")
+    catalog_path.write_text(
+        json.dumps({"recommendations": recs}, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+    print(f"Generated recommendations/catalog.json with {len(recs)} recommendation(s).")
+
+
 if __name__ == "__main__":
     build_courses()
     build_articles()
+    build_recommendations()

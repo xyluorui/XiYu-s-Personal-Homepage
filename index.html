@@ -15,6 +15,7 @@
       <div class="nav-links">
         <a href="#courses">课程</a>
         <a href="#practice">动手实践</a>
+        <a href="#picks">好物推荐</a>
         <a href="#about">关于</a>
         <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -25,6 +26,7 @@
     <div class="nav-drawer" id="nav-drawer">
       <a href="#courses">课程</a>
       <a href="#practice">动手实践</a>
+      <a href="#picks">好物推荐</a>
       <a href="#about">关于</a>
       <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
     </div>
@@ -97,7 +99,25 @@
       </div>
     </section>
 
-    <!-- ── Tile 4: About (surface-tile-2, dark) ──────── -->
+    <!-- ── Tile 4: Picks (surface-tile-1, dark) ────── -->
+    <section class="tile tile-dark" id="picks">
+      <div class="tile-inner">
+        <div class="tile-header">
+          <div class="tile-header-row">
+            <div>
+              <h2 class="display-lg">好物推荐</h2>
+              <p class="tile-desc">值得收藏的开源项目、工具与学习资源。</p>
+            </div>
+          </div>
+        </div>
+        <div class="rec-grid" id="rec-grid">
+          <div class="rec-skeleton"></div>
+        </div>
+        <p class="no-content" id="no-recs" style="display:none">暂无推荐。</p>
+      </div>
+    </section>
+
+    <!-- ── Tile 5: About (surface-tile-2, dark) ──────── -->
     <section class="tile tile-dark-2" id="about">
       <div class="tile-inner about-grid">
         <div class="about-copy">
@@ -122,6 +142,10 @@
             <span class="stat-num" id="stat-articles">–</span>
             <span class="stat-label">篇文章</span>
           </div>
+          <div class="stat-item">
+            <span class="stat-num" id="stat-recs">–</span>
+            <span class="stat-label">个推荐</span>
+          </div>
         </div>
       </div>
     </section>
@@ -137,6 +161,7 @@
             <span class="footer-heading">探索</span>
             <a href="#courses">互动课程</a>
             <a href="#practice">动手实践</a>
+            <a href="#picks">好物推荐</a>
             <a href="#about">关于</a>
           </div>
           <div class="footer-col">

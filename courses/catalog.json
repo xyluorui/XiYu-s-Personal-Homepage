@@ -12,6 +12,19 @@
         "研究"
       ],
       "path": "courses/osworld-course/"
+    },
+    {
+      "title": "WebArena 工作原理",
+      "description": "为 AI 网页智能体设计的标准化驾驶考试——深入了解 WebArena 如何在真实网站上评测 AI 完成复杂网页任务的能力。六个交互式模块。",
+      "modules": 6,
+      "date": "2026-05-06",
+      "tags": [
+        "AI",
+        "基准测试",
+        "网页智能体",
+        "研究"
+      ],
+      "path": "courses/webarena-course-zh/"
     }
   ]
 }

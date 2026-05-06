@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    {
+      "title": "AI Application Roadmap",
+      "tagline": "一张看懂 AI 应用工程演进的技术地图",
+      "description": "从 Prompt Engineering 到 MCP，从 Function Calling 到 Harness Engineering——AI 应用开发的技术栈在三年间经历了五代演进，但大多数人的认知还停留在「聊天框」阶段。这个开源项目用一条结构化时间线，把 2022 至 2026 年每一次关键范式转移梳理得清清楚楚：每个节点标注了采纳难度、发展趋势和认知校准，还支持按年份、阶段、趋势等维度自由筛选。中英双语，CC BY-SA 4.0 协议。如果你想搞清楚「AI 应用开发走到哪了、下一步该学什么」，这张地图值得收藏。",
+      "url": "https://qiuner.github.io/ai-application-roadmap/zh/",
+      "repo": "https://github.com/Qiuner/ai-application-roadmap",
+      "tags": [
+        "开源",
+        "AI 工程",
+        "学习资源"
+      ],
+      "date": "2026-05-06"
+    }
+  ]
+}

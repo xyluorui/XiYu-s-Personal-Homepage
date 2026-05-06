@@ -12,6 +12,15 @@
   };
   const CAT_DEFAULT = { bg: 'rgba(0,0,0,.06)', text: '#333333' };
 
+  const TAG_COLORS = {
+    '开源':     { bg: 'rgba(29,122,74,.1)',    text: '#1d7a4a' },
+    'AI 工程':  { bg: 'rgba(0,102,204,.1)',    text: '#0066cc' },
+    '学习资源': { bg: 'rgba(176,125,42,.1)',   text: '#b07d2a' },
+    '工具':     { bg: 'rgba(107,79,160,.1)',   text: '#6b4fa0' },
+    '效率':     { bg: 'rgba(142,58,46,.1)',    text: '#8e3a2e' },
+  };
+  const TAG_DEFAULT = { bg: 'rgba(0,0,0,.06)', text: '#333333' };
+
   const TAB_COLORS = ['#0066cc','#1d7a4a','#8e3a2e','#6b4fa0','#b07d2a','#2a6b7a'];
   function tabColor(i) { return TAB_COLORS[i % TAB_COLORS.length]; }
 
@@ -86,6 +95,37 @@
     return card;
   }
 
+  /* ── Recommendation card ─────────────────────────── */
+  function buildRecCard(rec, index) {
+    const card = document.createElement('div');
+    card.className = 'rec-card';
+    card.style.animationDelay = (index * 55) + 'ms';
+
+    const tags = rec.tags || [];
+    const tagHtml = tags.map(t => {
+      const col = TAG_COLORS[t] || TAG_DEFAULT;
+      return '<span class="rec-tag" style="background:' + col.bg + ';color:' + col.text + '">' + escHtml(t) + '</span>';
+    }).join('');
+
+    const siteUrl = escHtml(rec.url || '#');
+    const repoUrl = rec.repo ? escHtml(rec.repo) : '';
+
+    card.innerHTML =
+      '<div class="rec-card-tags">' + tagHtml + '</div>' +
+      '<div class="rec-card-title">' + escHtml(rec.title || '') + '</div>' +
+      '<div class="rec-card-tagline">' + escHtml(rec.tagline || '') + '</div>' +
+      '<div class="rec-card-desc">' + escHtml(rec.description || '') + '</div>' +
+      '<div class="rec-card-actions">' +
+        '<a class="rec-card-link" href="' + siteUrl + '" target="_blank" rel="noopener">访问网站 →</a>' +
+        (repoUrl ? '<a class="rec-card-link" href="' + repoUrl + '" target="_blank" rel="noopener">GitHub →</a>' : '') +
+      '</div>';
+
+    card.addEventListener('click', function (e) {
+      if (e.target.tagName !== 'A') window.open(siteUrl, '_blank');
+    });
+    return card;
+  }
+
   /* ── Load catalogs ──────────────────────────────── */
   async function loadCourses() {
     const grid  = $('course-grid');
@@ -123,8 +163,28 @@
     }
   }
 
+  async function loadRecommendations() {
+    const grid  = $('rec-grid');
+    const noMsg = $('no-recs');
+    try {
+      const res = await fetch('recommendations/catalog.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error();
+      const { recommendations = [] } = await res.json();
+      grid.innerHTML = '';
+      if (recommendations.length === 0) { noMsg.style.display = 'block'; }
+      else { recommendations.forEach((r, i) => grid.appendChild(buildRecCard(r, i))); }
+      return recommendations;
+    } catch {
+      grid.innerHTML = '';
+      noMsg.style.display = 'block';
+      return [];
+    }
+  }
+
   async function init() {
-    const [courses, articles] = await Promise.all([loadCourses(), loadArticles()]);
+    const [courses, articles, recommendations] = await Promise.all([
+      loadCourses(), loadArticles(), loadRecommendations()
+    ]);
 
     const totalModules = courses.reduce((s, c) => s + (c.modules || 0), 0);
 
@@ -138,9 +198,11 @@
     const sc = $('stat-courses');
     const sm = $('stat-modules');
     const sa = $('stat-articles');
+    const sr = $('stat-recs');
     if (sc) sc.textContent = courses.length;
     if (sm) sm.textContent = totalModules;
     if (sa) sa.textContent = articles.length;
+    if (sr) sr.textContent = recommendations.length;
   }
 
   /* ── Mobile nav ─────────────────────────────────── */
