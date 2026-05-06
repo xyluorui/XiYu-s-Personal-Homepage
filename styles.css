@@ -504,6 +504,13 @@ img { display: block; max-width: 100%; }
 }
 .article-card-link:hover { color: var(--primary-focus); }
 
+.article-card-source {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  color: var(--ink-muted-48);
+}
+
 /* ── Recommendation cards (editorial pick) ────────── */
 .rec-grid {
   display: grid;

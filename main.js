@@ -83,6 +83,7 @@
       '</div>' +
       '<div class="article-card-title">' + escHtml(article.title || '未命名文章') + '</div>' +
       '<div class="article-card-excerpt">' + escHtml(article.excerpt || '') + '</div>' +
+      (article.source ? '<div class="article-card-source">来源：' + escHtml(article.source) + '</div>' : '') +
       '<a class="article-card-link" href="' + href + '"' +
         (external ? ' target="_blank" rel="noopener"' : '') + '>阅读全文 →</a>';
 
