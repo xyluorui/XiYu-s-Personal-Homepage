@@ -1,15 +1,15 @@
 {
   "recommendations": [
     {
-      "title": "万字拆解 AI Agent 世代演变",
-      "tagline": "一篇文章看懂 2022–2026 AI Agent 五代跃迁的全景脉络",
-      "description": "这篇两万字长文系统梳理了 AI Agent 从 ChatGPT 到 OpenClaw 的五代演进：Gen 0 的被动问答、Gen 1 的 Function Calling 觉醒、Gen 2 的工程化编排与多智能体协作、Gen 3 的 MCP 标准化与 Vibe Coding 浪潮、Gen 4 的技能封装与常驻自治。每一代都拆解了基础设施突破、代表性产品、灾难教训和炒作泡沫的兴衰。文末还前瞻了闭环自治、内在记忆、世界模型与具身化四大方向。适合想建立 AI Agent 全局认知的开发者。",
-      "url": "https://mp.weixin.qq.com/s/5IO88_XT8VOvinZFUAXwtQ",
+      "title": "UI Style Prompt",
+      "tagline": "70+ 种 UI 设计风格的 AI 提示词库，一键复制即用",
+      "description": "收录玻璃态、新拟物、赛博朋克、包豪斯等 70 余种现代 UI 设计风格，每种风格配套专业级 AI 生成提示词。无论是向 Claude、GPT-4o 还是 Midjourney 下达设计指令，直接复制对应风格的 prompt 即可得到高质量、风格统一的 UI 输出，彻底告别「AI 生成界面千篇一律」的痛点。",
+      "url": "https://www.uiprompt.site/en",
       "tags": [
         "AI 工程",
-        "学习资源"
+        "工具"
       ],
-      "date": "2026-02-23"
+      "date": "2026-05-07"
     },
     {
       "title": "AI Application Roadmap",
@@ -25,15 +25,15 @@
       "date": "2026-05-06"
     },
     {
-      "title": "UI Style Prompt",
-      "tagline": "70+ 种 UI 设计风格的 AI 提示词库，一键复制即用",
-      "description": "收录玻璃态、新拟物、赛博朋克、包豪斯等 70 余种现代 UI 设计风格，每种风格配套专业级 AI 生成提示词。无论是向 Claude、GPT-4o 还是 Midjourney 下达设计指令，直接复制对应风格的 prompt 即可得到高质量、风格统一的 UI 输出，彻底告别「AI 生成界面千篇一律」的痛点。",
-      "url": "https://www.uiprompt.site/en",
+      "title": "万字拆解 AI Agent 世代演变",
+      "tagline": "一篇文章看懂 2022–2026 AI Agent 五代跃迁的全景脉络",
+      "description": "这篇两万字长文系统梳理了 AI Agent 从 ChatGPT 到 OpenClaw 的五代演进：Gen 0 的被动问答、Gen 1 的 Function Calling 觉醒、Gen 2 的工程化编排与多智能体协作、Gen 3 的 MCP 标准化与 Vibe Coding 浪潮、Gen 4 的技能封装与常驻自治。每一代都拆解了基础设施突破、代表性产品、灾难教训和炒作泡沫的兴衰。文末还前瞻了闭环自治、内在记忆、世界模型与具身化四大方向。适合想建立 AI Agent 全局认知的开发者。",
+      "url": "https://mp.weixin.qq.com/s/5IO88_XT8VOvinZFUAXwtQ",
       "tags": [
         "AI 工程",
-        "工具"
+        "学习资源"
       ],
-      "date": "2026-05-07"
+      "date": "2026-02-23"
     }
   ]
 }

@@ -5,7 +5,9 @@ Scans articles/*/article.json → articles/catalog.json
 Run from the repo root: python3 scripts/build-catalog.py
 """
 import json
+import re
 import sys
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -34,6 +36,7 @@ def build_courses():
         meta["path"] = f"courses/{d.name}/"
         courses.append(meta)
         print(f"  ✓ course: {d.name} — {meta.get('title', '(no title)')}")
+    courses.sort(key=lambda x: x.get("date", ""), reverse=True)
     catalog_path.write_text(
         json.dumps({"courses": courses}, ensure_ascii=False, indent=2),
         encoding="utf-8"
@@ -63,6 +66,7 @@ def build_articles():
                 meta["path"] = f"articles/{d.name}/"
         articles.append(meta)
         print(f"  ✓ article: {d.name} — {meta.get('title', '(no title)')}")
+    articles.sort(key=lambda x: x.get("date", ""), reverse=True)
     catalog_path.write_text(
         json.dumps({"articles": articles}, ensure_ascii=False, indent=2),
         encoding="utf-8"
@@ -88,6 +92,7 @@ def build_recommendations():
             continue
         recs.append(meta)
         print(f"  ✓ recommendation: {d.name} — {meta.get('title', '(no title)')}")
+    recs.sort(key=lambda x: x.get("date", ""), reverse=True)
     catalog_path.write_text(
         json.dumps({"recommendations": recs}, ensure_ascii=False, indent=2),
         encoding="utf-8"
@@ -95,7 +100,19 @@ def build_recommendations():
     print(f"Generated recommendations/catalog.json with {len(recs)} recommendation(s).")
 
 
+def stamp_assets():
+    """Inject today's date as ?v=YYYYMMDD on styles.css and main.js to bust CDN cache."""
+    index_path = ROOT / "index.html"
+    v = date.today().strftime("%Y%m%d")
+    html = index_path.read_text(encoding="utf-8")
+    html = re.sub(r'href="styles\.css(?:\?v=\d+)?"', f'href="styles.css?v={v}"', html)
+    html = re.sub(r'src="main\.js(?:\?v=\d+)?"',   f'src="main.js?v={v}"',   html)
+    index_path.write_text(html, encoding="utf-8")
+    print(f"Stamped styles.css and main.js with ?v={v}")
+
+
 if __name__ == "__main__":
     build_courses()
     build_articles()
     build_recommendations()
+    stamp_assets()
