@@ -3,25 +3,25 @@
 
   /* ── Category config ────────────────────────────── */
   const CAT_COLORS = {
-    '工具':   { bg: 'rgba(0,102,204,.1)',    text: '#0066cc' },
-    'AI实践': { bg: 'rgba(29,122,74,.1)',    text: '#1d7a4a' },
-    '教程':   { bg: 'rgba(176,125,42,.1)',   text: '#b07d2a' },
-    '思考':   { bg: 'rgba(107,79,160,.1)',   text: '#6b4fa0' },
-    '项目':   { bg: 'rgba(142,58,46,.1)',    text: '#8e3a2e' },
-    '实验':   { bg: 'rgba(42,107,122,.1)',   text: '#2a6b7a' },
+    '工具':   { bg: 'rgba(0,216,255,.15)',    text: '#00d8ff' },
+    'AI实践': { bg: 'rgba(114,241,184,.15)',  text: '#72f1b8' },
+    '教程':   { bg: 'rgba(255,253,130,.15)',  text: '#fffd82' },
+    '思考':   { bg: 'rgba(199,116,232,.15)',  text: '#c774e8' },
+    '项目':   { bg: 'rgba(255,106,213,.15)',  text: '#ff6ad5' },
+    '实验':   { bg: 'rgba(255,154,86,.15)',   text: '#ff9a56' },
   };
-  const CAT_DEFAULT = { bg: 'rgba(0,0,0,.06)', text: '#333333' };
+  const CAT_DEFAULT = { bg: 'rgba(255,255,255,.08)', text: 'rgba(255,255,255,.7)' };
 
   const TAG_COLORS = {
-    '开源':     { bg: 'rgba(29,122,74,.1)',    text: '#1d7a4a' },
-    'AI 工程':  { bg: 'rgba(0,102,204,.1)',    text: '#0066cc' },
-    '学习资源': { bg: 'rgba(176,125,42,.1)',   text: '#b07d2a' },
-    '工具':     { bg: 'rgba(107,79,160,.1)',   text: '#6b4fa0' },
-    '效率':     { bg: 'rgba(142,58,46,.1)',    text: '#8e3a2e' },
+    '开源':     { bg: 'rgba(114,241,184,.15)', text: '#72f1b8' },
+    'AI 工程':  { bg: 'rgba(0,216,255,.15)',   text: '#00d8ff' },
+    '学习资源': { bg: 'rgba(255,253,130,.15)', text: '#fffd82' },
+    '工具':     { bg: 'rgba(199,116,232,.15)', text: '#c774e8' },
+    '效率':     { bg: 'rgba(255,106,213,.15)', text: '#ff6ad5' },
   };
-  const TAG_DEFAULT = { bg: 'rgba(0,0,0,.06)', text: '#333333' };
+  const TAG_DEFAULT = { bg: 'rgba(255,255,255,.08)', text: 'rgba(255,255,255,.7)' };
 
-  const TAB_COLORS = ['#0066cc','#1d7a4a','#8e3a2e','#6b4fa0','#b07d2a','#2a6b7a'];
+  const TAB_COLORS = ['#ff6ad5','#00d8ff','#c774e8','#72f1b8','#fffd82','#ff9a56'];
   function tabColor(i) { return TAB_COLORS[i % TAB_COLORS.length]; }
 
   /* ── Helpers ────────────────────────────────────── */
@@ -189,11 +189,13 @@
 
     const totalModules = courses.reduce((s, c) => s + (c.modules || 0), 0);
 
-    // Hero meta
+    // Hero stats
     const hc = $('hero-stat-courses');
     const ha = $('hero-stat-articles');
-    if (hc) hc.querySelector('.hero-meta-num').textContent = courses.length;
-    if (ha) ha.querySelector('.hero-meta-num').textContent = articles.length;
+    const hr = $('hero-stat-recs');
+    if (hc) hc.textContent = courses.length;
+    if (ha) ha.textContent = articles.length;
+    if (hr) hr.textContent = recommendations.length;
 
     // About stats
     const sc = $('stat-courses');
@@ -204,15 +206,37 @@
     if (sm) sm.textContent = totalModules;
     if (sa) sa.textContent = articles.length;
     if (sr) sr.textContent = recommendations.length;
+
+    initNav();
+  }
+
+  /* ── Nav scroll spy ─────────────────────────────── */
+  function initNav() {
+    const navLinks = document.querySelectorAll('.nav-link[data-section]');
+    const sectionIds = Array.from(navLinks).map(l => l.dataset.section);
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(function (link) {
+            link.classList.toggle('active', link.dataset.section === id);
+          });
+        }
+      });
+    }, { rootMargin: '-72px 0px -60% 0px' });
+
+    sections.forEach(function (s) { observer.observe(s); });
   }
 
   /* ── Mobile nav ─────────────────────────────────── */
   const hamburger = document.getElementById('nav-hamburger');
-  const drawer    = document.getElementById('nav-drawer');
-  if (hamburger && drawer) {
-    hamburger.addEventListener('click', () => drawer.classList.toggle('open'));
-    drawer.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => drawer.classList.remove('open'));
+  const mobile    = document.getElementById('nav-mobile');
+  if (hamburger && mobile) {
+    hamburger.addEventListener('click', () => mobile.classList.toggle('open'));
+    mobile.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobile.classList.remove('open'));
     });
   }
 

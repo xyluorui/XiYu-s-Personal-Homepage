@@ -7,175 +7,137 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="vw-scanlines" aria-hidden="true"></div>
 
-  <!-- ── Global Nav ─────────────────────────────────── -->
-  <nav class="global-nav" id="global-nav">
-    <div class="global-nav-inner">
-      <a class="nav-wordmark" href="./">XiYu</a>
-      <div class="nav-links">
-        <a href="#courses">课程</a>
-        <a href="#practice">动手实践</a>
-        <a href="#picks">好物推荐</a>
-        <a href="#about">关于</a>
-        <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
-      </div>
+  <!-- ── Nav ──────────────────────────────────────────── -->
+  <header class="site-nav" id="site-nav">
+    <nav class="nav-inner">
+      <a class="nav-brand" href="./">XiYu</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#courses" class="nav-link" data-section="courses">课程</a></li>
+        <li><a href="#practice" class="nav-link" data-section="practice">动手实践</a></li>
+        <li><a href="#picks" class="nav-link" data-section="picks">好物推荐</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">关于</a></li>
+        <li><a href="https://github.com/xyluorui" class="nav-link" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="菜单">
         <span></span><span></span><span></span>
       </button>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#courses" class="nav-mobile-link">课程</a>
+      <a href="#practice" class="nav-mobile-link">动手实践</a>
+      <a href="#picks" class="nav-mobile-link">好物推荐</a>
+      <a href="#about" class="nav-mobile-link">关于</a>
+      <a href="https://github.com/xyluorui" class="nav-mobile-link" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <div class="nav-drawer" id="nav-drawer">
-      <a href="#courses">课程</a>
-      <a href="#practice">动手实践</a>
-      <a href="#picks">好物推荐</a>
-      <a href="#about">关于</a>
-      <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </nav>
+  </header>
 
-  <main>
+  <main id="main-content" class="main-content">
 
-    <!-- ── Tile 1: Hero (canvas-parchment) ───────────── -->
-    <section class="tile tile-parchment hero-tile" id="hero">
-      <div class="tile-inner tile-center">
-        <p class="hero-eyebrow">个人主页</p>
-        <h1 class="hero-display">XiYu</h1>
-        <p class="hero-lead">用 AI 构建，用 AI 学习。<br>这里记录我探索技术与创意边界的过程。</p>
-        <div class="cta-row">
-          <a href="#courses" class="btn-primary">探索课程</a>
-          <a href="#practice" class="btn-secondary">动手实践</a>
-          <a href="#picks" class="btn-secondary">好物推荐</a>
+    <!-- ── Hero ─────────────────────────────────────── -->
+    <section class="hero" id="hero">
+      <!-- ── Vaporwave Scene ── -->
+      <div class="vw-sun" aria-hidden="true"></div>
+      <div class="vw-horizon" aria-hidden="true"></div>
+      <div class="vw-grid-floor" aria-hidden="true"></div>
+
+      <!-- Floating neon geometry -->
+      <div class="vw-geo vw-geo-1" aria-hidden="true">
+        <svg viewBox="0 0 60 52" fill="none"><polygon points="30,2 58,50 2,50" stroke="#ff6ad5" stroke-width="1.5"/></svg>
+      </div>
+      <div class="vw-geo vw-geo-2" aria-hidden="true">
+        <svg viewBox="0 0 50 50" fill="none"><circle cx="25" cy="25" r="23" stroke="#00d8ff" stroke-width="1.5"/></svg>
+      </div>
+      <div class="vw-geo vw-geo-3" aria-hidden="true">
+        <svg viewBox="0 0 44 44" fill="none"><rect x="7" y="7" width="30" height="30" stroke="#c774e8" stroke-width="1.5" transform="rotate(45,22,22)"/></svg>
+      </div>
+
+      <h1 class="hero-title">XiYu</h1>
+      <p class="hero-subtitle">用 AI 构建，用 AI 学习。这里记录我探索技术与创意边界的过程。</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="hero-stat-courses">–</span>
+          <span class="hero-stat-label">门课程</span>
         </div>
-        <div class="hero-meta">
-          <a href="#courses" class="hero-meta-item" id="hero-stat-courses">
-            <span class="hero-meta-num">–</span>
-            <span class="hero-meta-label">门课程</span>
-          </a>
-          <div class="hero-meta-divider"></div>
-          <a href="#practice" class="hero-meta-item" id="hero-stat-articles">
-            <span class="hero-meta-num">–</span>
-            <span class="hero-meta-label">篇文章</span>
-          </a>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="hero-stat-articles">–</span>
+          <span class="hero-stat-label">篇文章</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="hero-stat-recs">–</span>
+          <span class="hero-stat-label">个推荐</span>
         </div>
       </div>
     </section>
 
-    <!-- ── Tile 2: Courses (surface-tile-1, dark) ─────── -->
-    <section class="tile tile-dark" id="courses">
-      <div class="tile-inner">
-        <div class="tile-header">
-          <div class="tile-header-row">
-            <div>
-              <h2 class="display-lg">互动课程</h2>
-              <p class="tile-desc">把真实的开源项目转化为可滚动浏览、有动画演示和互动测验的学习体验。</p>
-            </div>
-          </div>
-        </div>
-        <div class="course-grid" id="course-grid">
-          <div class="course-skeleton"></div>
-          <div class="course-skeleton"></div>
-          <div class="course-skeleton"></div>
-        </div>
-        <p class="no-content" id="no-courses" style="display:none">暂无课程。</p>
+    <!-- ── Courses ──────────────────────────────────── -->
+    <section class="content-section" id="courses">
+      <h2 class="section-title">互动课程</h2>
+      <p class="section-desc">把真实的开源项目转化为可滚动浏览、有动画演示和互动测验的学习体验。</p>
+      <div class="course-grid" id="course-grid">
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
       </div>
+      <p class="no-content" id="no-courses" style="display:none">暂无课程。</p>
     </section>
 
-    <!-- ── Tile 3: Practice (canvas-parchment) ───────── -->
-    <section class="tile tile-parchment" id="practice">
-      <div class="tile-inner">
-        <div class="tile-header">
-          <div class="tile-header-row">
-            <div>
-              <h2 class="display-lg" style="color:var(--ink)">动手实践</h2>
-              <p class="tile-desc-light">记录真实动手过程中的发现、踩坑与心得——从工具到 AI，从实验到产品。</p>
-            </div>
-          </div>
-        </div>
-        <div class="article-grid" id="article-grid">
-          <div class="article-skeleton"></div>
-          <div class="article-skeleton"></div>
-          <div class="article-skeleton"></div>
-          <div class="article-skeleton"></div>
-        </div>
-        <p class="no-content" id="no-articles" style="display:none">暂无文章，敬请期待。</p>
+    <!-- ── Practice ─────────────────────────────────── -->
+    <section class="content-section" id="practice">
+      <h2 class="section-title">动手实践</h2>
+      <p class="section-desc">记录真实动手过程中的发现、踩坑与心得——从工具到 AI，从实验到产品。</p>
+      <div class="article-grid" id="article-grid">
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
       </div>
+      <p class="no-content" id="no-articles" style="display:none">暂无文章，敬请期待。</p>
     </section>
 
-    <!-- ── Tile 4: Picks (surface-tile-1, dark) ────── -->
-    <section class="tile tile-dark" id="picks">
-      <div class="tile-inner">
-        <div class="tile-header">
-          <div class="tile-header-row">
-            <div>
-              <h2 class="display-lg">好物推荐</h2>
-              <p class="tile-desc">值得收藏的开源项目、工具与学习资源。</p>
-            </div>
-          </div>
-        </div>
-        <div class="rec-grid" id="rec-grid">
-          <div class="rec-skeleton"></div>
-        </div>
-        <p class="no-content" id="no-recs" style="display:none">暂无推荐。</p>
+    <!-- ── Picks ────────────────────────────────────── -->
+    <section class="content-section" id="picks">
+      <h2 class="section-title">好物推荐</h2>
+      <p class="section-desc">值得收藏的开源项目、工具与学习资源。</p>
+      <div class="rec-grid" id="rec-grid">
+        <div class="skeleton"></div>
       </div>
+      <p class="no-content" id="no-recs" style="display:none">暂无推荐。</p>
     </section>
 
-    <!-- ── Tile 5: About (surface-tile-2, dark) ──────── -->
-    <section class="tile tile-dark-2" id="about">
-      <div class="tile-inner about-grid">
-        <div class="about-copy">
-          <h2 class="display-lg">关于</h2>
-          <p class="about-body">这里展示的内容由 AI 辅助生成与整理，每一门课程都把一个真实的开源项目转化为交互式学习体验，每一篇文章都记录了实际动手过程中的发现与思考。</p>
-          <p class="about-body">如果你也想把代码库变成课程，可以试试 <code>codebase-to-course</code> 技能。</p>
-          <div class="about-links">
-            <a href="https://github.com/xyluorui" target="_blank" rel="noopener" class="about-link">GitHub →</a>
-            <a href="https://github.com/xyluorui/XiYu-s-Personal-Homepage" target="_blank" rel="noopener" class="about-link">本站源码 →</a>
-          </div>
+    <!-- ── About ────────────────────────────────────── -->
+    <section class="content-section" id="about">
+      <h2 class="section-title">关于</h2>
+      <p class="about-body">这里展示的内容由 AI 辅助生成与整理，每一门课程都把一个真实的开源项目转化为交互式学习体验，每一篇文章都记录了实际动手过程中的发现与思考。</p>
+      <p class="about-body">如果你也想把代码库变成课程，可以试试 <code>codebase-to-course</code> 技能。</p>
+      <div class="about-links">
+        <a href="https://github.com/xyluorui" target="_blank" rel="noopener" class="about-link">GitHub →</a>
+        <a href="https://github.com/xyluorui/XiYu-s-Personal-Homepage" target="_blank" rel="noopener" class="about-link">本站源码 →</a>
+      </div>
+      <div class="about-stats" id="about-stats">
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-courses">–</span>
+          <span class="about-stat-label">门课程</span>
         </div>
-        <div class="stat-stack">
-          <div class="stat-item">
-            <span class="stat-num" id="stat-courses">–</span>
-            <span class="stat-label">门课程</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" id="stat-modules">–</span>
-            <span class="stat-label">个模块</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" id="stat-articles">–</span>
-            <span class="stat-label">篇文章</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" id="stat-recs">–</span>
-            <span class="stat-label">个推荐</span>
-          </div>
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-modules">–</span>
+          <span class="about-stat-label">个模块</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-articles">–</span>
+          <span class="about-stat-label">篇文章</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-recs">–</span>
+          <span class="about-stat-label">个推荐</span>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ── Footer (canvas-parchment) ─────────────────── -->
+  <!-- ── Footer ───────────────────────────────────────── -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-cols">
-          <div class="footer-col">
-            <span class="footer-heading">探索</span>
-            <a href="#courses">互动课程</a>
-            <a href="#practice">动手实践</a>
-            <a href="#picks">好物推荐</a>
-            <a href="#about">关于</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-heading">链接</span>
-            <a href="https://github.com/xyluorui" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://github.com/xyluorui/XiYu-s-Personal-Homepage" target="_blank" rel="noopener">本站源码</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-legal">
-        <p>Copyright © 2026 XiYu. 保留所有权利。</p>
-      </div>
-    </div>
+    <p>Copyright &copy; 2026 XiYu. 保留所有权利。</p>
   </footer>
 
   <script src="main.js"></script>
