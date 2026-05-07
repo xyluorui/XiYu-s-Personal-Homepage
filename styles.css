@@ -243,22 +243,22 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   text-align: center;
   overflow: hidden;
   margin: 0 -32px;
-  padding: 120px 32px 180px;
+  padding: 60px 32px 0;
   background: linear-gradient(
     180deg,
     #0a0015 0%,
     #200f33 12%,
     #3d1766 25%,
-    #c774e8 40%,
-    #ff6ad5 52%,
-    #ff9a56 60%,
-    #fffd82 65%,
-    #200f33 67%,
-    #1a0a2e 80%,
+    #c774e8 38%,
+    #ff6ad5 48%,
+    #ff9a56 53%,
+    #fffd82 55%,
+    #200f33 60%,
+    #1a0a2e 75%,
     #0a0015 100%
   );
 }
@@ -306,7 +306,7 @@ body::after {
 .vw-horizon {
   position: absolute;
   left: 0; right: 0;
-  top: 63%;
+  top: 55%;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--vw-cyan), var(--vw-pink), var(--vw-cyan), transparent);
   box-shadow:
@@ -319,7 +319,7 @@ body::after {
 .vw-grid-floor {
   position: absolute;
   left: -60%; right: -60%;
-  top: 63%;
+  top: 55%;
   bottom: 0;
   background:
     repeating-linear-gradient(
@@ -385,21 +385,33 @@ body::after {
     0 0 40px rgba(255,106,213,0.5),
     0 0 80px rgba(199,116,232,0.35),
     0 0 120px rgba(0,216,255,0.2);
+  margin-top: clamp(48px, 14vh, 140px);
   margin-bottom: 20px;
   animation: neonFlicker 8s ease-in-out infinite;
 }
 
 .hero-subtitle {
-  position: relative;
-  z-index: 3;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.06em;
   color: var(--vw-yellow);
   max-width: 520px;
-  margin: 0 auto 48px;
+  margin: 0 auto 40px;
   line-height: 1.7;
-  text-shadow: 0 1px 12px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 16px rgba(0,0,0,0.9), 0 0 32px rgba(0,0,0,0.7);
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 32px 52px;
+  background: linear-gradient(0deg, rgba(10,0,21,0.75) 0%, transparent 100%);
 }
 
 .hero-stats {
@@ -875,15 +887,16 @@ body::after {
   .nav-hamburger { display: flex; }
   .nav-inner { padding: 0 20px; }
   .main-content { padding: 0 20px; }
-  .hero { padding: 100px 20px 160px; min-height: 85vh; margin: 0 -20px; }
-  .hero-title { letter-spacing: 0.14em; }
+  .hero { padding: 40px 20px 0; min-height: 85vh; margin: 0 -20px; }
+  .hero-title { letter-spacing: 0.14em; margin-top: clamp(32px, 8vh, 80px); }
+  .hero-bottom { padding: 32px 20px 40px; }
   .hero-stats { gap: 32px; }
   .content-section { padding: 48px 0; }
   .about-stats { gap: 32px; flex-wrap: wrap; }
 
   .vw-sun { top: 10%; }
-  .vw-grid-floor { top: 56%; }
-  .vw-horizon { top: 56%; }
+  .vw-grid-floor { top: 50%; }
+  .vw-horizon { top: 50%; }
   .vw-geo-1 { left: 4%; }
   .vw-geo-3 { left: 8%; }
 }
