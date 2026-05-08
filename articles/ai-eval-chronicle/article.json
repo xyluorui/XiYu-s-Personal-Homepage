@@ -1,0 +1,8 @@
+{
+  "title": "AI 评测编年史",
+  "date": "2026-05-08",
+  "categories": ["项目", "AI实践"],
+  "excerpt": "用 VitePress 构建的大模型与 AI Agent 评测技术发展时间线，收录了从 GLUE 到 Humanity's Last Exam 的 37 个关键评测基准。",
+  "url": "https://xyluorui.github.io/ai-eval-chronicle/",
+  "source": "GitHub"
+}
