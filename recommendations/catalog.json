@@ -1,6 +1,17 @@
 {
   "recommendations": [
     {
+      "title": "用 Agent 评测思路管理 AI Coding —— 31 万行代码 AI 重构的实践",
+      "tagline": "当 90% 以上代码由 AI 生成，决定系统走向的不是谁写得更快，而是约束 AI 的能力。",
+      "description": "本文记录了一支团队在不停止业务交付的前提下，借助 AI 完成 31 万行代码渐进式重构的全过程。核心方法论：先「人人对齐」建立团队共识，再「人机对齐」将共识固化为 AI 可执行的 Rule 和 SOP——这与 Agent 评测的对齐逻辑完全相同。文章还揭示了三个反直觉结论：AI 让人人都有了代码全局感、技术债可以拆解进业务迭代顺带消化、工程师的核心价值正从「写代码」转向「设计让 AI 可靠产出代码的工程环境」。",
+      "url": "https://mp.weixin.qq.com/s/CTY5mdgKh6TmPrO6xsKhWQ",
+      "tags": [
+        "AI 工程",
+        "学习资源"
+      ],
+      "date": "2026-05-08"
+    },
+    {
       "title": "UI Style Prompt",
       "tagline": "70+ 种 UI 设计风格的 AI 提示词库，一键复制即用",
       "description": "收录玻璃态、新拟物、赛博朋克、包豪斯等 70 余种现代 UI 设计风格，每种风格配套专业级 AI 生成提示词。无论是向 Claude、GPT-4o 还是 Midjourney 下达设计指令，直接复制对应风格的 prompt 即可得到高质量、风格统一的 UI 输出，彻底告别「AI 生成界面千篇一律」的痛点。",
